@@ -97,8 +97,10 @@ function RotatingRing({
     >
       {items.map((item, i) => {
         const angle = ((360 / items.length) * i - 90) * (Math.PI / 180);
-        const x = Math.cos(angle) * radius + radius - 28;
-        const y = Math.sin(angle) * radius + radius - 28;
+        const cardSize = 56; // w-14 = 56px
+        const halfCard = cardSize / 2;
+        const x = Math.cos(angle) * radius + radius - halfCard;
+        const y = Math.sin(angle) * radius + radius - halfCard;
 
         return (
           <div
@@ -109,7 +111,7 @@ function RotatingRing({
           >
             <motion.div
               whileHover={{ scale: 1.25, zIndex: 50 }}
-              className="group relative flex items-center justify-center w-14 h-14 rounded-2xl border border-white/[0.08] bg-white/[0.03] cursor-pointer transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.08]"
+              className="group relative flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl border border-white/[0.08] bg-white/[0.03] cursor-pointer transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.08]"
               style={{ boxShadow: `0 0 20px ${item.color}10` }}
             >
               <span className="text-xl transition-colors duration-300" style={{ color: item.color }}>
@@ -177,7 +179,7 @@ function CenterCore() {
       />
       <div
         ref={coreRef}
-        className="relative w-20 h-20 rounded-full border border-white/10 flex items-center justify-center"
+        className="relative w-14 h-14 md:w-20 md:h-20 rounded-full border border-white/10 flex items-center justify-center"
         style={{
           background: 'radial-gradient(circle at 30% 30%, rgb(var(--red) / 0.3), rgb(var(--ink-2) / 0.8))',
           boxShadow: '0 0 60px rgb(var(--red) / 0.2), inset 0 0 30px rgb(var(--red) / 0.1)',
@@ -293,6 +295,14 @@ function CategoryLabels() {
 export function StackSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-10% 0px' });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const ring0 = allTech.slice(0, 6);
   const ring1 = allTech.slice(6, 13);
@@ -335,7 +345,7 @@ export function StackSection() {
         {/* Orbital Visualization */}
         <motion.div
           className="relative mx-auto"
-          style={{ width: '100%', maxWidth: 700, aspectRatio: '1 / 1' }}
+          style={{ width: '100%', maxWidth: isMobile ? 360 : 700, aspectRatio: '1 / 1' }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -345,18 +355,18 @@ export function StackSection() {
             style={{ background: 'radial-gradient(circle at center, rgb(var(--red) / 0.08) 0%, transparent 60%)' }}
           />
 
-          <OrbitRing radius={140} delay={0.2} />
-          <OrbitRing radius={240} delay={0.4} />
-          <OrbitRing radius={320} delay={0.6} />
+          <OrbitRing radius={isMobile ? 80 : 140} delay={0.2} />
+          <OrbitRing radius={isMobile ? 130 : 240} delay={0.4} />
+          <OrbitRing radius={isMobile ? 170 : 320} delay={0.6} />
 
           <CategoryLabels />
           <Particles />
           <CenterCore />
 
           {/* GSAP-powered rotating rings */}
-          <RotatingRing items={ring0} radius={140} duration={25} />
-          <RotatingRing items={ring1} radius={240} duration={35} reverse />
-          <RotatingRing items={ring2} radius={320} duration={45} />
+          <RotatingRing items={ring0} radius={isMobile ? 80 : 140} duration={25} />
+          <RotatingRing items={ring1} radius={isMobile ? 130 : 240} duration={35} reverse />
+          <RotatingRing items={ring2} radius={isMobile ? 170 : 320} duration={45} />
         </motion.div>
 
         <TechCounter />

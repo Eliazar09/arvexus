@@ -94,7 +94,7 @@ export function Hero() {
               {/* SITES — vermelho, enorme */}
               <div
                 className="flex flex-wrap gap-x-[0.15em]"
-                style={{ fontSize: 'clamp(4.5rem, 12vw, 9.5rem)' }}
+                style={{ fontSize: 'clamp(3rem, 10vw, 9.5rem)' }}
               >
                 <HeroWord
                   word="SITES"
@@ -107,7 +107,7 @@ export function Hero() {
               {/* AUTOMAÇÃO — branco, menor */}
               <div
                 className="flex flex-wrap gap-x-[0.15em]"
-                style={{ fontSize: 'clamp(2.4rem, 5.8vw, 4.8rem)' }}
+                style={{ fontSize: 'clamp(1.8rem, 5vw, 4.8rem)' }}
               >
                 <HeroWord
                   word="AUTOMAÇÃO"
@@ -120,7 +120,7 @@ export function Hero() {
               {/* SISTEMAS — preto fosco (outline) */}
               <div
                 className="flex flex-wrap gap-x-[0.15em]"
-                style={{ fontSize: 'clamp(3rem, 7.5vw, 6.2rem)' }}
+                style={{ fontSize: 'clamp(2.2rem, 6.5vw, 6.2rem)' }}
               >
                 <HeroWord
                   word="SISTEMAS"
@@ -136,7 +136,7 @@ export function Hero() {
               {/* que vendem. */}
               <div
                 className="flex flex-wrap gap-x-[0.22em] mt-1"
-                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}
+                style={{ fontSize: 'clamp(1.5rem, 4vw, 3.8rem)' }}
               >
                 <HeroWord word="que" delay={0.5} className="font-display font-light text-paper" />
                 <HeroWord
