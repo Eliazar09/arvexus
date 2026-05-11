@@ -1,0 +1,38 @@
+:root {
+  /* ── Neutros ──────────────────────────────── */
+  --ink:        8 8 9;
+  --ink-2:      16 16 18;
+  --ink-3:      24 24 27;
+  --paper:      245 243 238;
+  --paper-dim:  215 213 206;
+  --paper-soft: 168 165 158;
+
+  /* ── Acento único — vermelho cirúrgico ──── */
+  --red:        230 57 70;
+  --red-deep:   197 39 50;
+  --red-glow:   230 57 70;
+
+  /* ── Estados ──────────────────────────────── */
+  --success:    132 169 140;
+  --warn:       224 167 86;
+
+  /* ── Linhas ───────────────────────────────── */
+  --line:        255 255 255 / 0.08;
+  --line-strong: 255 255 255 / 0.16;
+
+  /* ── Sombras ──────────────────────────────── */
+  --shadow-luxe: 0 30px 80px -20px rgb(0 0 0 / 0.6);
+
+  /* ── Escala fluida ────────────────────────── */
+  --fs-mono: clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --fs-body: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --fs-lead: clamp(1.25rem,  1.1rem  + 0.6vw,  1.5rem);
+  --fs-h3:   clamp(1.75rem,  1.4rem  + 1.5vw,  2.5rem);
+  --fs-h2:   clamp(2.5rem,   1.8rem  + 3vw,    4.5rem);
+  --fs-h1:   clamp(3.5rem,   2rem    + 7vw,     9rem);
+  --fs-mega: clamp(5rem,     2rem    + 15vw,   14rem);
+
+  /* ── Espaçamento ──────────────────────────── */
+  --section-py: clamp(5rem, 10vw, 10rem);
+  --container-px: clamp(1.25rem, 4vw, 4rem);
+}
