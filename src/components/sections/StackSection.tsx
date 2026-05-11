@@ -342,32 +342,54 @@ export function StackSection() {
           </Reveal>
         </div>
 
-        {/* Orbital Visualization */}
-        <motion.div
-          className="relative mx-auto"
-          style={{ width: '100%', maxWidth: isMobile ? 360 : 700, aspectRatio: '1 / 1' }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div
-            className="absolute inset-0 rounded-full opacity-30"
-            style={{ background: 'radial-gradient(circle at center, rgb(var(--red) / 0.08) 0%, transparent 60%)' }}
-          />
+        {/* Mobile: grid layout | Desktop: orbital visualization */}
+        {isMobile ? (
+          <motion.div
+            className="grid grid-cols-4 gap-4 mt-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {allTech.map((item, i) => (
+              <motion.div
+                key={item.name}
+                className="flex flex-col items-center gap-2 p-3 rounded-xl border border-white/[0.06] bg-white/[0.02]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: 0.1 + i * 0.04, duration: 0.6 }}
+              >
+                <span className="text-xl" style={{ color: item.color }}>{item.icon}</span>
+                <span className="font-mono text-[8px] uppercase tracking-wider text-white/50 text-center leading-tight">{item.name}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          <motion.div
+            className="relative mx-auto"
+            style={{ width: '100%', maxWidth: 700, aspectRatio: '1 / 1' }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div
+              className="absolute inset-0 rounded-full opacity-30"
+              style={{ background: 'radial-gradient(circle at center, rgb(var(--red) / 0.08) 0%, transparent 60%)' }}
+            />
 
-          <OrbitRing radius={isMobile ? 80 : 140} delay={0.2} />
-          <OrbitRing radius={isMobile ? 130 : 240} delay={0.4} />
-          <OrbitRing radius={isMobile ? 170 : 320} delay={0.6} />
+            <OrbitRing radius={140} delay={0.2} />
+            <OrbitRing radius={240} delay={0.4} />
+            <OrbitRing radius={320} delay={0.6} />
 
-          <CategoryLabels />
-          <Particles />
-          <CenterCore />
+            <CategoryLabels />
+            <Particles />
+            <CenterCore />
 
-          {/* GSAP-powered rotating rings */}
-          <RotatingRing items={ring0} radius={isMobile ? 80 : 140} duration={25} />
-          <RotatingRing items={ring1} radius={isMobile ? 130 : 240} duration={35} reverse />
-          <RotatingRing items={ring2} radius={isMobile ? 170 : 320} duration={45} />
-        </motion.div>
+            {/* GSAP-powered rotating rings */}
+            <RotatingRing items={ring0} radius={140} duration={25} />
+            <RotatingRing items={ring1} radius={240} duration={35} reverse />
+            <RotatingRing items={ring2} radius={320} duration={45} />
+          </motion.div>
+        )}
 
         <TechCounter />
       </div>
