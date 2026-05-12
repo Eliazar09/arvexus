@@ -257,10 +257,6 @@ export function PricingSection() {
           transition={{ delay: 0.8, duration: 0.6 }}
         >
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-red" style={{ animation: 'scroll-pulse 1.8s ease-in-out infinite' }} />
-            <p className="font-mono text-[10px] uppercase tracking-widest text-red/70">
-              Apenas 2 vagas disponíveis em junho · Reserve a sua
-            </p>
           </div>
           <p className="font-mono text-[10px] text-paper-soft/25 tracking-wide text-center sm:text-right">
             Sistemas sob consulta · Parcelamento disponível · 50% entrada + 50% entrega

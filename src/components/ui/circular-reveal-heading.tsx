@@ -19,9 +19,9 @@ interface CircularRevealHeadingProps {
 }
 
 const sizeConfig = {
-  sm: { container: 'h-[280px] w-[280px]', fontSize: 'text-[10px]', tracking: 'tracking-[0.25em]', radius: 130, gap: 45, imageSize: 'w-[70%] h-[70%]', textStyle: 'font-medium' },
-  md: { container: 'h-[380px] w-[380px]', fontSize: 'text-xs',     tracking: 'tracking-[0.3em]',  radius: 155, gap: 32, imageSize: 'w-[72%] h-[72%]', textStyle: 'font-medium' },
-  lg: { container: 'h-[480px] w-[480px]', fontSize: 'text-sm',     tracking: 'tracking-[0.35em]', radius: 180, gap: 22, imageSize: 'w-[74%] h-[74%]', textStyle: 'font-medium' },
+  sm: { container: 'h-[220px] w-[220px] md:h-[280px] md:w-[280px]', fontSize: 'text-[8px] md:text-[10px]', tracking: 'tracking-[0.25em]', radius: 130, gap: 45, imageSize: 'w-[70%] h-[70%]', textStyle: 'font-medium' },
+  md: { container: 'h-[260px] w-[260px] md:h-[380px] md:w-[380px]', fontSize: 'text-[9px] md:text-xs',     tracking: 'tracking-[0.3em]',  radius: 155, gap: 32, imageSize: 'w-[72%] h-[72%]', textStyle: 'font-medium' },
+  lg: { container: 'h-[300px] w-[300px] md:h-[480px] md:w-[480px]', fontSize: 'text-[10px] md:text-sm',     tracking: 'tracking-[0.35em]', radius: 180, gap: 22, imageSize: 'w-[74%] h-[74%]', textStyle: 'font-medium' },
 };
 
 const usePreloadImages = (images: string[]) => {
