@@ -160,7 +160,7 @@ function VisualBrowser() {
           </div>
           <div className="flex-1 bg-white/[0.04] rounded-full px-2 py-0.5 flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-[#e63946]/60" />
-            <span className="font-mono text-[8px] text-white/30">arvexbr.com</span>
+            <span className="font-mono text-[8px] text-white/30">arvexagency.online</span>
           </div>
         </div>
 

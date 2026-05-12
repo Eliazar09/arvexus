@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { services } from '@/content/services';
 import { projects } from '@/content/projects';
 
-const BASE_URL = 'https://arvexbr.com';
+const BASE_URL = 'https://www.arvexagency.online';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

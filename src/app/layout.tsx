@@ -24,43 +24,48 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arvexbr.com'),
+  metadataBase: new URL("https://www.arvexagency.online"),
   title: {
-    default: 'Arvex Agency — Sites, Automação e Sistemas em Boa Vista RR',
-    template: '%s | Arvex Agency',
+    default: "Criação de Sites e Automação em Boa Vista RR | Arvex Agency",
+    template: "%s | Arvex Agency",
   },
   description:
-    'Agência de tecnologia em Boa Vista, Roraima. Sites profissionais entregues em 1–5 dias, automação de WhatsApp, sistemas web e CRM. +30 projetos entregues, 100% aprovação.',
+    "Criação de sites profissionais, automação WhatsApp e sistemas web em Boa Vista, Roraima (RR). Projetos modernos entregues em poucos dias.",
   keywords: [
-    'agência de sites Boa Vista',
-    'criação de site Roraima',
-    'automação WhatsApp Boa Vista',
-    'site profissional Roraima',
-    'agência digital Boa Vista RR',
-    'sistema web Roraima',
-    'CRM WhatsApp automação',
-    'sites Next.js Boa Vista',
+    "criação de sites",
+    "automação WhatsApp",
+    "sistemas web",
+    "Boa Vista RR",
+    "Roraima",
+    "agência de tecnologia",
+    "sites profissionais",
   ],
-  authors: [{ name: 'Arvex Agency', url: 'https://arvexbr.com' }],
-  creator: 'Arvex Agency',
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    type: 'website',
-    locale: 'pt_BR',
-    url: 'https://arvexbr.com',
-    siteName: 'Arvex Agency',
-    title: 'Arvex Agency — Sites, Automação e Sistemas em Boa Vista RR',
-    description: 'Sites profissionais em 1–5 dias, automação de WhatsApp e sistemas web. Boutique tech em Boa Vista, Roraima.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Arvex Agency' }],
+    title: "Arvex Agency — Sites, Sistemas e Automação",
+    description:
+      "Sites profissionais, automação WhatsApp e sistemas web em Boa Vista RR.",
+    url: "https://www.arvexagency.online",
+    siteName: "Arvex Agency",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://www.arvexagency.online/og",
+        width: 1200,
+        height: 630,
+        alt: "Arvex Agency",
+      },
+    ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Arvex Agency — Sites e Automação em Boa Vista RR',
-    description: 'Sites em 1–5 dias, automação WhatsApp e sistemas web. Boutique tech, Roraima.',
-    images: ['/og-image.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
+    card: "summary_large_image",
+    title: "Arvex Agency — Sites e Automação",
+    description:
+      "Sites profissionais, automação WhatsApp e sistemas web em Boa Vista RR.",
+    images: ["https://www.arvexagency.online/og"],
   },
 };
 
@@ -69,9 +74,9 @@ const schemaOrg = {
   '@type': 'LocalBusiness',
   name: 'Arvex Agency',
   description: 'Boutique de tecnologia em Boa Vista, Roraima. Sites profissionais, automação de WhatsApp e sistemas web.',
-  url: 'https://arvexbr.com',
+  url: 'https://www.arvexagency.online',
   telephone: '+55-95-9-8107-5842',
-  email: 'contato@arvexbr.com',
+  email: 'contato@arvexagency.online',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Boa Vista',

@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
           }}
         >
           <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#A8A59E', letterSpacing: '0.08em' }}>
-            arvexbr.com
+            arvexagency.online
           </span>
           <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#A8A59E', letterSpacing: '0.08em' }}>
             BOA VISTA, RR · BRASIL

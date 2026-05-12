@@ -6,9 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
     ],
-    sitemap: 'https://arvexbr.com/sitemap.xml',
+    sitemap: 'https://www.arvexagency.online/sitemap.xml',
   };
 }

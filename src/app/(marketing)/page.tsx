@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   title: 'Arvex Agency — Sites, Sistemas e Automação',
   description:
     'Boutique de tecnologia e criação em Boa Vista–RR. Sites em 1–5 dias, sistemas web e automação WhatsApp sob medida.',
-  alternates: { canonical: 'https://arvexbr.com' },
 };
 
 const CRH_ITEMS = [
