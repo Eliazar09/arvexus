@@ -76,7 +76,7 @@ const schemaOrg = {
   description: 'Boutique de tecnologia em Boa Vista, Roraima. Sites profissionais, automação de WhatsApp e sistemas web.',
   url: 'https://www.arvexagency.online',
   telephone: '+55-95-9-8107-5842',
-  email: 'contato@arvexagency.online',
+  email: 'arvexagency@outlook.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Boa Vista',

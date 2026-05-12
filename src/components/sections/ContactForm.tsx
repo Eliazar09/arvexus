@@ -14,9 +14,10 @@ import { cn } from '@/lib/utils';
 // ─── Schema ──────────────────────────────────────────────────────────────────
 
 const schema = z.object({
-  name:           z.string().min(2,  'Nome deve ter ao menos 2 caracteres'),
+  name:           z.string().optional(),
   email:          z.string().email('Email inválido'),
-  whatsapp:       z.string().min(10, 'Número inválido — inclua DDD'),
+  whatsappCode:   z.string(),
+  whatsappNumber: z.string().min(8, 'Número inválido'),
   company:        z.string().optional(),
   segment:        z.string().min(1,  'Selecione o segmento'),
   hasSite:        z.enum(['sim', 'nao']),
@@ -87,7 +88,7 @@ const TIMELINES = [
 const TIME_SLOTS = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
 
 const STEP_FIELDS: Record<number, (keyof FormData)[]> = {
-  0: ['name', 'email', 'whatsapp'],
+  0: ['name', 'email', 'whatsappCode', 'whatsappNumber'],
   1: ['segment', 'hasSite'],
   2: ['service'],
   3: ['goal', 'timeline', 'message'],
@@ -189,6 +190,8 @@ export function ContactForm() {
     defaultValues: {
       hasSite:       'nao',
       contactMethod: 'mensagem',
+      whatsappCode:  '+55',
+      whatsappNumber: '',
     },
   });
 
@@ -301,7 +304,7 @@ export function ContactForm() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label>Seu nome completo *</Label>
+                <Label>Seu nome completo</Label>
                 <TextInput
                   {...register('name')}
                   placeholder="Como você se chama?"
@@ -322,13 +325,60 @@ export function ContactForm() {
 
               <div className="flex flex-col gap-2">
                 <Label>WhatsApp *</Label>
-                <TextInput
-                  {...register('whatsapp')}
-                  type="tel"
-                  placeholder="+55 (95) 9 0000-0000"
-                  error={errors.whatsapp?.message}
+                <Controller
+                  control={control}
+                  name="whatsappNumber"
+                  render={({ field: numField }) => (
+                    <Controller
+                      control={control}
+                      name="whatsappCode"
+                      render={({ field: codeField }) => {
+                        const maskPhone = (val: string, currentCode: string) => {
+                          if (currentCode !== '+55') return val.replace(/[^\d ]/g, '');
+                          let v = val.replace(/\D/g, '');
+                          if (v.length > 11) v = v.slice(0, 11);
+                          if (v.length > 2) v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+                          if (v.length > 9) v = `${v.slice(0, 9)}-${v.slice(9)}`;
+                          return v;
+                        };
+                        return (
+                          <div className="flex flex-col gap-1">
+                            <div className={cn(
+                              'flex items-center border-b transition-colors duration-300',
+                              errors.whatsappNumber ? 'border-red/60' : 'border-white/15 focus-within:border-red'
+                            )}>
+                              <select
+                                {...codeField}
+                                className="bg-transparent text-paper font-sans text-base py-3 pr-2 focus:outline-none cursor-pointer"
+                              >
+                                <option value="+55" className="bg-[#0a0a0b] text-paper">🇧🇷 +55</option>
+                                <option value="+351" className="bg-[#0a0a0b] text-paper">🇵🇹 +351</option>
+                                <option value="+1" className="bg-[#0a0a0b] text-paper">🇺🇸 +1</option>
+                                <option value="+34" className="bg-[#0a0a0b] text-paper">🇪🇸 +34</option>
+                                <option value="+44" className="bg-[#0a0a0b] text-paper">🇬🇧 +44</option>
+                                <option value="+49" className="bg-[#0a0a0b] text-paper">🇩🇪 +49</option>
+                                <option value="+54" className="bg-[#0a0a0b] text-paper">🇦🇷 +54</option>
+                                <option value="+56" className="bg-[#0a0a0b] text-paper">🇨🇱 +56</option>
+                                <option value="+57" className="bg-[#0a0a0b] text-paper">🇨🇴 +57</option>
+                                <option value="+52" className="bg-[#0a0a0b] text-paper">🇲🇽 +52</option>
+                              </select>
+                              <span className="text-paper-soft/30 mx-2">|</span>
+                              <input
+                                type="tel"
+                                value={maskPhone(numField.value || '', codeField.value)}
+                                onChange={(e) => numField.onChange(maskPhone(e.target.value, codeField.value))}
+                                placeholder={codeField.value === '+55' ? "(95) 90000-0000" : "Número do WhatsApp"}
+                                className="w-full bg-transparent py-3 font-sans text-base text-paper placeholder:text-paper-soft/30 focus:outline-none"
+                              />
+                            </div>
+                            <FieldError message={errors.whatsappNumber?.message} />
+                          </div>
+                        );
+                      }}
+                    />
+                  )}
                 />
-                <p className="font-mono text-[9px] text-paper-soft/30 tracking-wide">
+                <p className="font-mono text-[9px] text-paper-soft/30 tracking-wide mt-1">
                   Usamos só para confirmar reunião ou enviar proposta
                 </p>
               </div>

@@ -64,7 +64,7 @@ export default function ContatoPage() {
                   {/* Contatos */}
                   <div className="flex flex-col gap-6">
                     <a
-                      href="mailto:contato@arvexagency.online"
+                      href="mailto:arvexagency@outlook.com"
                       className="flex items-center gap-4 group"
                     >
                       <div className="w-10 h-10 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-red/40 transition-colors">
@@ -73,7 +73,7 @@ export default function ContatoPage() {
                       <div>
                         <p className="section-label mb-1">EMAIL</p>
                         <p className="font-sans text-sm text-paper-dim group-hover:text-paper transition-colors">
-                          contato@arvexagency.online
+                          arvexagency@outlook.com
                         </p>
                       </div>
                     </a>
