@@ -208,7 +208,33 @@ export function ContactForm() {
 
   const onSubmit = async (_data: FormData) => {
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1800));
+    
+    const message = `*Novo Contato via Site* 🌐
+
+*Nome:* ${_data.name || 'Não informado'}
+*Email:* ${_data.email}
+*WhatsApp:* ${_data.whatsappCode} ${_data.whatsappNumber}
+
+*Empresa:* ${_data.company || 'Não informada'}
+*Segmento:* ${_data.segment}
+*Tem Site:* ${_data.hasSite === 'sim' ? 'Sim' : 'Não'} ${_data.hasSite === 'sim' && _data.currentSiteUrl ? `(${_data.currentSiteUrl})` : ''}
+
+*Serviço:* ${_data.service}
+*Objetivo:* ${_data.goal}
+*Prazo:* ${_data.timeline}
+
+*Detalhes do Projeto:*
+${_data.message}
+
+*Preferência de Retorno:* ${_data.contactMethod === 'meet' ? `Google Meet (${_data.meetDate} às ${_data.meetTime})` : 'Apenas Mensagem'}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    // Número oficial da Arvex Agency
+    const whatsappUrl = `https://wa.me/5595981075842?text=${encodedMessage}`;
+    
+    await new Promise((r) => setTimeout(r, 800));
+    window.open(whatsappUrl, '_blank');
+    
     setLoading(false);
     setSubmitted(true);
   };
