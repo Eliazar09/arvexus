@@ -4,6 +4,7 @@ import { Hero } from '@/components/sections/Hero';
 import { ServicesRibbon } from '@/components/sections/ServicesRibbon';
 import { Manifesto } from '@/components/sections/Manifesto';
 import { ServicesFlow } from '@/components/sections/ServicesFlow';
+import { ProjectsGrid } from '@/components/sections/ProjectsGrid';
 import { LogoStrip } from '@/components/sections/LogoStrip';
 
 // Lazy — carregam só quando chegam na viewport
@@ -22,11 +23,6 @@ const CircularRevealHeading = dynamic(
   { ssr: false, loading: () => null }
 );
 
-const CardStack = dynamic(
-  () => import('@/components/ui/card-stack').then(m => ({ default: m.CardStack })),
-  { ssr: false, loading: () => null }
-);
-
 
 export const metadata: Metadata = {
   title: 'Arvex Agency — Sites, Sistemas e Automação',
@@ -40,41 +36,6 @@ const CRH_ITEMS = [
   { text: 'AUTOMAÇÃO',     image: '/projects/financa-br.png'       },
   { text: 'SISTEMAS WEB',  image: '/projects/hospital-vet.png'     },
   { text: 'RESULTADOS',    image: '/projects/nova-store.png'       },
-];
-
-const PROJECT_CARDS = [
-  {
-    id: 1,
-    title: 'Toka Restaurante',
-    description: 'Site institucional com cardápio digital e reservas online.',
-    imageSrc: '/projects/toka-restaurante.png',
-    href: 'https://tokarestaurante.vercel.app/',
-    tag: 'Sites · 2025',
-  },
-  {
-    id: 2,
-    title: 'Hospital Vet',
-    description: 'Clínica veterinária com agendamento e serviços.',
-    imageSrc: '/projects/hospital-vet.png',
-    href: 'https://hospitalvet.vercel.app/',
-    tag: 'Sites · 2025',
-  },
-  {
-    id: 3,
-    title: 'Nova Living',
-    description: 'Loja online com catálogo de produtos e checkout.',
-    imageSrc: '/projects/nova-store.png',
-    href: 'https://novastore-br.vercel.app/',
-    tag: 'E-commerce · 2025',
-  },
-  {
-    id: 4,
-    title: 'Meridian',
-    description: 'Plataforma financeira com dashboard e controle.',
-    imageSrc: '/projects/financa-br.png',
-    href: 'https://finan-a-br.vercel.app/',
-    tag: 'Dashboard · 2025',
-  },
 ];
 
 export default function HomePage() {
@@ -123,39 +84,7 @@ export default function HomePage() {
       </section>
 
       <ServicesFlow />
-
-      {/* Projetos — CardStack */}
-      <section className="section border-b border-white/[0.06]" aria-label="Projetos">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-end mb-12">
-            <div className="md:col-span-3">
-              <p className="section-label">04 / PROJETOS</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2
-                className="font-display font-light text-paper leading-tight"
-                style={{ fontSize: 'var(--fs-h2)' }}
-              >
-                Trabalho<br />
-                <span style={{ color: 'rgb(var(--red))' }}>selecionado.</span>
-              </h2>
-            </div>
-          </div>
-          <CardStack
-            items={PROJECT_CARDS}
-            initialIndex={0}
-            autoAdvance
-            intervalMs={3000}
-            pauseOnHover
-            showDots
-            cardWidth={480}
-            cardHeight={300}
-            overlap={0.45}
-            spreadDeg={42}
-          />
-        </div>
-      </section>
-
+      <ProjectsGrid />
       <BenefitsSection />
       <StackSection />
       <ComparisonSection />

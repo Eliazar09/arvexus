@@ -159,8 +159,8 @@ export function CircularRevealHeading({ items, centerText, className, size = 'md
         <svg viewBox="0 0 400 400" className="w-full h-full">
           <defs>
             <linearGradient id="crh-textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgb(var(--paper-soft))" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="rgb(var(--paper))" stopOpacity="0.9" />
+              <stop offset="0%" stopColor="rgb(var(--paper))" stopOpacity="1" />
+              <stop offset="100%" stopColor="rgb(var(--paper))" stopOpacity="1" />
             </linearGradient>
           </defs>
           <path
