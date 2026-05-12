@@ -47,7 +47,10 @@ export function ComparisonSection() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="overflow-x-auto">
+          <p className="font-mono text-[9px] uppercase tracking-widest text-paper-soft/30 mb-4 md:hidden flex items-center gap-2">
+            <span>←</span> deslize para ver tudo <span>→</span>
+          </p>
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
             <table className="w-full min-w-[600px]" aria-label="Comparação entre Arvex e alternativas">
               {/* Header */}
               <thead>

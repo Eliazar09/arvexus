@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Reveal } from '@/components/primitives/RevealText';
 import { WavePath } from '@/components/ui/wave-path';
+import { WaveText } from '@/components/ui/wave-text';
 
 const LayeredText = dynamic(
   () => import('@/components/ui/layered-text').then((m) => ({ default: m.LayeredText })),
@@ -24,31 +25,25 @@ export function Manifesto() {
           {/* Texto */}
           <div className="md:col-span-9">
             <Reveal delay={0.15}>
-              <blockquote className="font-display font-light italic leading-tight" style={{ fontSize: 'var(--fs-h2)' }}>
-                Acreditamos que tecnologia bem-feita é{' '}
-                <em
-                  className="not-italic"
-                  style={{
-                    fontStyle: 'italic',
-                    fontVariationSettings: '"SOFT" 100, "opsz" 144',
-                    color: 'rgb(var(--paper))',
-                  }}
-                >
-                  invisível
-                </em>{' '}
-                e marca bem-feita é{' '}
-                <em
-                  className="not-italic"
-                  style={{
-                    fontStyle: 'italic',
-                    fontVariationSettings: '"SOFT" 100, "opsz" 144',
-                    color: 'rgb(var(--red))',
-                  }}
-                >
-                  inevitável.
-                </em>
+              <blockquote
+                className="font-display font-light italic leading-tight"
+                style={{ fontSize: 'var(--fs-h2)' }}
+              >
+                <WaveText text="Acreditamos que tecnologia bem-feita é " className="text-paper-dim" />
+                <WaveText
+                  text="invisível"
+                  style={{ color: 'rgb(var(--paper))', fontVariationSettings: '"SOFT" 100, "opsz" 144' }}
+                />
+                <WaveText text=" e marca bem-feita é " className="text-paper-dim" />
+                <WaveText
+                  text="inevitável."
+                  style={{ color: 'rgb(var(--red))', fontVariationSettings: '"SOFT" 100, "opsz" 144' }}
+                />
                 <br />
-                Construímos as duas coisas, no mesmo lugar, com o mesmo cuidado.
+                <WaveText
+                  text="Construímos as duas coisas, no mesmo lugar, com o mesmo cuidado."
+                  className="text-paper-dim"
+                />
               </blockquote>
             </Reveal>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import NextImage from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { gsap } from 'gsap';
 import { cn } from '@/lib/utils';
@@ -43,7 +44,10 @@ const usePreloadImages = (images: string[]) => {
   return loaded;
 };
 
+const imagePx = { sm: 196, md: 274, lg: 355 };
+
 function ImageOverlay({ image, size = 'md' }: { image: string; size?: 'sm' | 'md' | 'lg' }) {
+  const px = imagePx[size];
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -52,12 +56,12 @@ function ImageOverlay({ image, size = 'md' }: { image: string; size?: 'sm' | 'md
       transition={{ duration: 0.3 }}
       className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
     >
-      <img
-        src={image}
-        alt=""
-        className={cn(sizeConfig[size].imageSize, 'object-cover rounded-full')}
-        style={{ filter: 'brightness(0.7)' }}
-      />
+      <div
+        className="relative rounded-full overflow-hidden"
+        style={{ width: px, height: px, filter: 'brightness(0.7)' }}
+      >
+        <NextImage src={image} alt="" fill className="object-cover" />
+      </div>
     </motion.div>
   );
 }

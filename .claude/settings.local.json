@@ -29,10 +29,14 @@
       "Bash(findstr LISTENING)",
       "Bash(findstr \":3001\")",
       "Bash(taskkill /PID 12768 /F)",
-      "PowerShell(Stop-Process -Id 12768 -Force -ErrorAction SilentlyContinue)"
+      "PowerShell(Stop-Process -Id 12768 -Force -ErrorAction SilentlyContinue)",
+      "Bash(start \"c:\\\\Users\\\\frank\\\\Desktop\\\\Sites\\\\Brasil\\\\novo site da arvex\\\\linktree\\\\index.html\")",
+      "WebFetch(domain:www.arvexagency.online)",
+      "Bash(del \"c:\\\\Users\\\\frank\\\\Desktop\\\\Sites\\\\Brasil\\\\novo site da arvex\\\\src\\\\components\\\\primitives\\\\WhatsAppButton.tsx\")"
     ],
     "additionalDirectories": [
-      "c:\\Users\\frank\\Desktop\\Sites\\Brasil\\novo site da arvex\\src\\app\\(marketing)\\projetos"
+      "c:\\Users\\frank\\Desktop\\Sites\\Brasil\\novo site da arvex\\src\\app\\(marketing)\\projetos",
+      "c:\\Users\\frank\\Desktop\\Sites\\Brasil\\novo site da arvex\\linktree"
     ]
   }
 }

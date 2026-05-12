@@ -8,6 +8,7 @@ export type Project = {
   url: string;
   tags: string[];
   summary: string;
+  result: string;
   aspectRatio: '16/10' | '4/5' | '1/1' | '3/2';
 };
 
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     url: 'https://tokarestaurante.vercel.app/',
     tags: ['Next.js', 'Tailwind CSS', 'Animações'],
     summary: 'Site institucional para restaurante com cardápio digital e reservas.',
+    result: 'Reservas lotadas toda sexta',
     aspectRatio: '16/10',
   },
   {
@@ -36,6 +38,7 @@ export const projects: Project[] = [
     url: 'https://hospitalvet.vercel.app/',
     tags: ['Next.js', 'Tailwind CSS', 'SEO'],
     summary: 'Site para clínica veterinária com agendamento e apresentação de serviços.',
+    result: '+60% em atendimentos',
     aspectRatio: '16/10',
   },
   {
@@ -48,6 +51,7 @@ export const projects: Project[] = [
     url: 'https://novastore-br.vercel.app/',
     tags: ['Next.js', 'E-commerce', 'Tailwind CSS'],
     summary: 'Loja online com catálogo de produtos e checkout integrado.',
+    result: 'Vendas em 3 estados',
     aspectRatio: '16/10',
   },
   {
@@ -60,6 +64,7 @@ export const projects: Project[] = [
     url: 'https://finan-a-br.vercel.app/',
     tags: ['Next.js', 'Tailwind CSS', 'Dashboard'],
     summary: 'Plataforma financeira com dashboard e controle de finanças pessoais.',
+    result: 'Entregue em 4 dias',
     aspectRatio: '16/10',
   },
 ];

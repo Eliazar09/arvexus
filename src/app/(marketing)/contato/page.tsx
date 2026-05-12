@@ -34,7 +34,10 @@ export default function ContatoPage() {
             <div className="lg:col-span-7">
               <Reveal>
                 <h2 className="font-display text-2xl font-light text-paper mb-10">
-                  Conta pra gente sobre o seu projeto.
+                  5 passos. Menos de 3 minutos.<br />
+                  <span className="text-paper-soft/40" style={{ fontSize: '0.75em' }}>
+                    Respondemos em até 24h — ou agende um Google Meet agora.
+                  </span>
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
@@ -76,7 +79,7 @@ export default function ContatoPage() {
                     </a>
 
                     <a
-                      href="https://wa.me/559500000000"
+                      href="https://wa.me/5595981075842"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 group"
@@ -87,7 +90,7 @@ export default function ContatoPage() {
                       <div>
                         <p className="section-label mb-1">WHATSAPP</p>
                         <p className="font-sans text-sm text-paper-dim group-hover:text-paper transition-colors">
-                          +55 (95) 9 0000-0000
+                          +55 (95) 9 8107-5842
                         </p>
                       </div>
                     </a>

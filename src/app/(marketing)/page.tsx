@@ -5,11 +5,13 @@ import { ServicesRibbon } from '@/components/sections/ServicesRibbon';
 import { Manifesto } from '@/components/sections/Manifesto';
 import { ServicesFlow } from '@/components/sections/ServicesFlow';
 import { ProjectsGrid } from '@/components/sections/ProjectsGrid';
+import { LogoStrip } from '@/components/sections/LogoStrip';
 
 // Lazy — carregam só quando chegam na viewport
 const BenefitsSection   = dynamic(() => import('@/components/sections/BenefitsSection').then(m => ({ default: m.BenefitsSection })));
 const StackSection      = dynamic(() => import('@/components/sections/StackSection').then(m => ({ default: m.StackSection })));
 const ComparisonSection = dynamic(() => import('@/components/sections/ComparisonSection').then(m => ({ default: m.ComparisonSection })));
+const PricingSection    = dynamic(() => import('@/components/sections/PricingSection').then(m => ({ default: m.PricingSection })));
 const Process           = dynamic(() => import('@/components/sections/Process').then(m => ({ default: m.Process })));
 const Testimonials      = dynamic(() => import('@/components/sections/Testimonials').then(m => ({ default: m.Testimonials })));
 const SocialConnect     = dynamic(() => import('@/components/sections/SocialConnect').then(m => ({ default: m.SocialConnect })));
@@ -21,10 +23,6 @@ const CircularRevealHeading = dynamic(
   { ssr: false, loading: () => null }
 );
 
-const LayeredText = dynamic(
-  () => import('@/components/ui/layered-text').then(m => ({ default: m.LayeredText })),
-  { ssr: false, loading: () => null }
-);
 
 export const metadata: Metadata = {
   title: 'Arvex Agency — Sites, Sistemas e Automação',
@@ -44,6 +42,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LogoStrip />
       <ServicesRibbon />
       <Manifesto />
 
@@ -61,20 +60,24 @@ export default function HomePage() {
                 <span style={{ color: 'rgb(var(--red))' }}>uma entrega.</span>
               </h2>
               <p className="font-sans text-paper-dim mt-6 max-w-[38ch]" style={{ fontSize: 'var(--fs-lead)' }}>
-                Passe o mouse sobre as especialidades para ver exemplos reais do nosso trabalho.
+                <span className="hidden md:inline">Passe o mouse sobre as especialidades para ver exemplos reais do nosso trabalho.</span>
+                <span className="md:hidden">Toque nas especialidades para ver exemplos reais do nosso trabalho.</span>
               </p>
             </div>
-            <div className="flex justify-center">
-              <CircularRevealHeading
-                size="lg"
-                items={CRH_ITEMS}
-                centerText={
-                  <div className="text-center">
-                    <p className="font-display font-extrabold text-4xl text-paper tracking-tight">ARVEX</p>
-                    <p className="font-mono text-[9px] text-paper-soft/50 uppercase tracking-[0.2em] mt-1">boutique tech</p>
-                  </div>
-                }
-              />
+            {/* Wrapper responsivo — escala o CRH para caber em celular */}
+            <div className="flex justify-center w-[298px] h-[298px] sm:w-[374px] sm:h-[374px] lg:w-[480px] lg:h-[480px] overflow-hidden shrink-0">
+              <div className="scale-[0.62] sm:scale-[0.78] lg:scale-100 origin-top-left shrink-0">
+                <CircularRevealHeading
+                  size="lg"
+                  items={CRH_ITEMS}
+                  centerText={
+                    <div className="text-center">
+                      <p className="font-display font-extrabold text-4xl text-paper tracking-tight">ARVEX</p>
+                      <p className="font-mono text-[9px] text-paper-soft/50 uppercase tracking-[0.2em] mt-1">boutique tech</p>
+                    </div>
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -85,6 +88,7 @@ export default function HomePage() {
       <BenefitsSection />
       <StackSection />
       <ComparisonSection />
+      <PricingSection />
       <Process />
       <Testimonials />
       <SocialConnect />

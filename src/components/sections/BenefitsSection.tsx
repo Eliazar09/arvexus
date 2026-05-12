@@ -223,7 +223,7 @@ function BenefitCard({
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative w-full sm:w-[340px] rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0a0a0b] hover:border-white/[0.16] transition-colors duration-500"
+      className="group relative w-full max-w-full sm:w-[340px] rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0a0a0b] hover:border-white/[0.16] transition-colors duration-500"
       style={{ boxShadow: `0 0 40px ${accentColor}08` }}
     >
       {/* Visual area */}

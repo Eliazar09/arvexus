@@ -59,7 +59,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
             {project.title}
           </motion.h3>
 
-          {/* Tags */}
+          {/* Tags + resultado */}
           <div className="hidden md:flex items-center gap-2 ml-4">
             {project.tags.slice(0, 2).map((tag) => (
               <span
@@ -69,6 +69,14 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
                 {tag}
               </span>
             ))}
+            {project.result && (
+              <span className="flex items-center gap-1.5 border border-red/20 bg-red/[0.04] px-2 py-1 group-hover:border-red/40 transition-all duration-300">
+                <span className="w-1 h-1 rounded-full bg-red/60 shrink-0" />
+                <span className="font-mono text-[9px] uppercase tracking-widest text-red/60 group-hover:text-red/80 transition-colors">
+                  {project.result}
+                </span>
+              </span>
+            )}
           </div>
         </div>
 
