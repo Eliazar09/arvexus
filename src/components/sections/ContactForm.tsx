@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { useForm, Controller, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -114,15 +114,14 @@ function FieldError({ message }: { message?: string }) {
   );
 }
 
-function TextInput({
-  placeholder,
-  type = 'text',
-  error,
-  ...props
-}: React.InputHTMLAttributes<HTMLInputElement> & { error?: string }) {
+const TextInput = forwardRef<
+  HTMLInputElement,
+  React.InputHTMLAttributes<HTMLInputElement> & { error?: string }
+>(({ placeholder, type = 'text', error, ...props }, ref) => {
   return (
     <>
       <input
+        ref={ref}
         type={type}
         placeholder={placeholder}
         className={cn(
@@ -135,7 +134,8 @@ function TextInput({
       <FieldError message={error} />
     </>
   );
-}
+});
+TextInput.displayName = 'TextInput';
 
 function RadioCard({
   selected,
