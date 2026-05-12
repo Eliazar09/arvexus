@@ -46,8 +46,8 @@ export default function HomePage() {
       <ServicesRibbon />
       <Manifesto />
 
-      {/* CircularRevealHeading — hover para ver projetos */}
-      <section className="section border-b border-white/[0.06]" aria-label="Serviços em destaque">
+      {/* CircularRevealHeading — hover para ver projetos (hidden on mobile) */}
+      <section className="hidden md:block section border-b border-white/[0.06]" aria-label="Serviços em destaque">
         <div className="container">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="flex-1">
