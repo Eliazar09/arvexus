@@ -1,7 +1,10 @@
 'use client';
 
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useRef } from 'react';
 import { useForm, Controller, useWatch } from 'react-hook-form';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+import { PdfTemplate } from './PdfTemplate';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { motion, AnimatePresence } from 'motion/react';
@@ -206,33 +209,52 @@ export function ContactForm() {
     setStep(next);
   };
 
+  const pdfRef = useRef<HTMLDivElement>(null);
+  const [pdfData, setPdfData] = useState<FormData | null>(null);
+
   const onSubmit = async (_data: FormData) => {
     setLoading(true);
     
+    // 1. Prepare PDF Data and Wait for React to Render the Template
+    setPdfData(_data);
+    await new Promise((r) => setTimeout(r, 200)); // wait for DOM update
+
+    // 2. Generate PDF using html2canvas & jsPDF
+    if (pdfRef.current) {
+      try {
+        const canvas = await html2canvas(pdfRef.current, { 
+          scale: 2, 
+          useCORS: true, 
+          backgroundColor: '#0a0a0b' 
+        });
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`Briefing_Arvex_${_data.name ? _data.name.replace(/\s+/g, '') : 'Projeto'}.pdf`);
+      } catch (err) {
+        console.error('Falha ao gerar o PDF', err);
+      }
+    }
+
+    // 3. Build WhatsApp Text requesting the PDF attachment
     const message = `*Novo Contato via Site* 🌐
 
 *Nome:* ${_data.name || 'Não informado'}
-*Email:* ${_data.email}
 *WhatsApp:* ${_data.whatsappCode} ${_data.whatsappNumber}
-
-*Empresa:* ${_data.company || 'Não informada'}
-*Segmento:* ${_data.segment}
-*Tem Site:* ${_data.hasSite === 'sim' ? 'Sim' : 'Não'} ${_data.hasSite === 'sim' && _data.currentSiteUrl ? `(${_data.currentSiteUrl})` : ''}
-
 *Serviço:* ${_data.service}
-*Objetivo:* ${_data.goal}
-*Prazo:* ${_data.timeline}
 
-*Detalhes do Projeto:*
-${_data.message}
+*Preferência de Retorno:* ${_data.contactMethod === 'meet' ? `Google Meet (${_data.meetDate} às ${_data.meetTime})` : 'Apenas Mensagem'}
 
-*Preferência de Retorno:* ${_data.contactMethod === 'meet' ? `Google Meet (${_data.meetDate} às ${_data.meetTime})` : 'Apenas Mensagem'}`;
+_💡 Olá, acabei de gerar meu briefing detalhado em PDF pelo seu site! Estou enviando o arquivo PDF em anexo logo abaixo para darmos andamento._ 👇`;
 
     const encodedMessage = encodeURIComponent(message);
-    // Número oficial da Arvex Agency
     const whatsappUrl = `https://wa.me/5595981075842?text=${encodedMessage}`;
     
-    await new Promise((r) => setTimeout(r, 800));
+    // Pequena pausa para garantir o download do PDF antes de abrir a nova aba
+    await new Promise((r) => setTimeout(r, 500));
     window.open(whatsappUrl, '_blank');
     
     setLoading(false);
@@ -805,6 +827,11 @@ ${_data.message}
           )}
         </div>
       </form>
+
+      {/* Hidden PDF Template for html2canvas to read */}
+      <div style={{ overflow: 'hidden', height: 0 }}>
+        {pdfData && <PdfTemplate ref={pdfRef} data={pdfData} />}
+      </div>
     </div>
   );
 }
