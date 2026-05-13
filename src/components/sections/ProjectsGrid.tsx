@@ -126,10 +126,10 @@ export function ProjectsGrid() {
         <div className="flex items-end justify-between mb-16 gap-8">
           <div>
             <Reveal>
-              <p className="section-label mb-4">04 / PROJETOS</p>
+              <p className="section-label mb-4">04 / PROYECTOS</p>
             </Reveal>
             <SplitReveal
-              text="Trabalho selecionado."
+              text="Trabajo seleccionado."
               as="h2"
               delay={0.1}
               stagger={0.05}
@@ -161,7 +161,7 @@ export function ProjectsGrid() {
             href="/projetos"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-paper-soft/40 hover:text-paper transition-colors"
           >
-            Ver todos os projetos <ArrowUpRight size={12} />
+            Ver todos los proyectos <ArrowUpRight size={12} />
           </Link>
         </Reveal>
       </div>

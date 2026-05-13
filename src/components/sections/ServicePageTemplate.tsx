@@ -14,7 +14,7 @@ interface ServicePageTemplateProps {
 
 export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
   const related = projects
-    .filter((p) => p.category === 'Sites')
+    .filter((p) => p.category === 'Websites')
     .slice(0, 2);
 
   return (
@@ -23,7 +23,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
       <section className="min-h-[55vh] flex items-end border-b border-white/[0.06]">
         <div className="container pb-16 pt-[120px]">
           <Reveal>
-            <p className="section-label mb-6">{service.number} / SERVIÇOS</p>
+            <p className="section-label mb-6">{service.number} / SERVICES</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="font-display font-light leading-tight mb-6" style={{ fontSize: 'var(--fs-h1)' }}>
@@ -41,7 +41,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
         <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="section-label mb-6">O QUE ENTREGAMOS</p>
+              <p className="section-label mb-6">WHAT WE DELIVER</p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="font-sans text-paper-dim leading-relaxed mb-10" style={{ fontSize: 'var(--fs-lead)' }}>
@@ -65,7 +65,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
 
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <p className="section-label mb-6">ENTREGÁVEIS</p>
+              <p className="section-label mb-6">DELIVERABLES</p>
               <ul className="flex flex-col gap-3">
                 {service.deliverables.map((d, i) => (
                   <li key={i} className="flex items-start gap-4 border-b border-white/[0.06] pb-3">
@@ -85,7 +85,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
       <section className="section border-b border-white/[0.06]">
         <div className="container">
           <Reveal>
-            <p className="section-label mb-8">STACK & FERRAMENTAS</p>
+            <p className="section-label mb-8">STACK & TOOLS</p>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="flex flex-wrap gap-3">
@@ -103,11 +103,11 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
       <section className="section border-b border-white/[0.06]">
         <div className="container">
           <Reveal>
-            <p className="section-label mb-4">PACOTES</p>
+            <p className="section-label mb-4">PACKAGES</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display font-light text-paper mb-12" style={{ fontSize: 'var(--fs-h2)' }}>
-              Escolha seu ponto de partida.
+              Choose your starting point.
             </h2>
           </Reveal>
 
@@ -122,7 +122,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
                   }`}
                 >
                   {pkg.highlighted && (
-                    <span className="section-label text-red mb-4">MAIS POPULAR</span>
+                    <span className="section-label text-red mb-4">MOST POPULAR</span>
                   )}
                   <h3 className="font-display text-2xl font-light text-paper mb-2">{pkg.name}</h3>
                   <p className="section-label text-paper-soft/50 mb-8">{pkg.deadline}</p>
@@ -144,7 +144,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
                         : 'border border-white/20 text-paper-soft hover:border-paper/40 hover:text-paper'
                     }`}
                   >
-                    Solicitar →
+                    Request →
                   </Link>
                 </div>
               </Reveal>
@@ -158,7 +158,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
         <section className="section border-b border-white/[0.06]">
           <div className="container">
             <Reveal>
-              <p className="section-label mb-4">PROJETOS RELACIONADOS</p>
+              <p className="section-label mb-4">RELATED PROJECTS</p>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               {related.map((p, i) => (
@@ -175,7 +175,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
       <section className="section border-b border-white/[0.06]">
         <div className="container">
           <Reveal>
-            <p className="section-label mb-4">DÚVIDAS FREQUENTES</p>
+            <p className="section-label mb-4">FREQUENTLY ASKED QUESTIONS</p>
           </Reveal>
           <Reveal delay={0.1}>
             <Accordion items={service.faq.map((f) => ({ question: f.q, answer: f.a }))} className="mt-8" />
@@ -188,7 +188,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
         <div className="container text-center">
           <Reveal>
             <h2 className="font-display font-light text-paper mb-6" style={{ fontSize: 'var(--fs-h2)' }}>
-              Pronto para começar?
+              Ready to start?
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -197,7 +197,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
                 href="/contato"
                 className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest bg-red text-paper px-8 py-4 hover:bg-red-deep transition-colors"
               >
-                Agendar conversa <ArrowRight size={14} />
+                Schedule a talk <ArrowRight size={14} />
               </Link>
             </MagneticLink>
           </Reveal>

@@ -4,40 +4,40 @@ import { Reveal } from '@/components/primitives/RevealText';
 import { MagneticLink } from '@/components/primitives/MagneticLink';
 
 export const metadata: Metadata = {
-  title: 'Sobre',
-  description: 'Conheça a Arvex BR — boutique de tecnologia e criação baseada em Boa Vista, RR. Nossa história, princípios e as pessoas por trás do trabalho.',
+  title: 'About',
+  description: 'Meet Arvex — a technology and creative boutique based in New York, NY. Our story, principles, and the people behind the work.',
 };
 
 const principles = [
   {
     number: '01',
-    title: 'Obsessão com qualidade',
-    description: 'Cada detalhe importa. Um pixel errado, uma linha de código desnecessária, uma cor que não está no sistema — tudo isso importa. Nosso padrão não tem dia ruim.',
+    title: 'Obsession with quality',
+    description: 'Every detail matters. A wrong pixel, an unnecessary line of code, a color not in the system — it all matters. Our standard doesn\'t have a bad day.',
   },
   {
     number: '02',
-    title: 'Transparência total',
-    description: 'Você sabe o que está sendo feito, por que, e quando vai ficar pronto. Sem surpresas de escopo, sem promessa que não entregamos.',
+    title: 'Total transparency',
+    description: 'You know what is being done, why, and when it will be ready. No scope surprises, no promises we don\'t deliver.',
   },
   {
     number: '03',
-    title: 'Tecnologia a serviço do negócio',
-    description: 'Não usamos tecnologia porque é nova ou interessante. Usamos porque resolve um problema real do seu negócio com a menor fricção possível.',
+    title: 'Technology serving the business',
+    description: 'We don\'t use technology because it\'s new or cool. We use it because it solves a real problem for your business with the least possible friction.',
   },
   {
     number: '04',
-    title: 'Relação de longo prazo',
-    description: 'Preferimos menos clientes com mais profundidade do que muitos projetos superficiais. Crescemos quando nossos clientes crescem.',
+    title: 'Long-term relationship',
+    description: 'We prefer fewer clients with more depth over many superficial projects. We grow when our clients grow.',
   },
 ];
 
 const timeline = [
-  { year: '2019', event: 'Primeiro projeto — site para clínica médica em Boa Vista' },
-  { year: '2020', event: 'Expansão para design de identidade visual e primeiros e-commerces' },
-  { year: '2021', event: 'Início dos projetos de automação e sistemas com n8n' },
-  { year: '2022', event: 'Primeiros clientes de outras regiões do Brasil e América Latina' },
-  { year: '2023', event: 'Adição do serviço de edição de vídeo e design para social' },
-  { year: '2024', event: 'Rebranding da agência e lançamento deste novo site' },
+  { year: '2019', event: 'First project — website for a medical clinic in New York' },
+  { year: '2020', event: 'Expansion into visual identity design and first e-commerce sites' },
+  { year: '2021', event: 'Launch of automation and systems projects with n8n' },
+  { year: '2022', event: 'First clients from other regions in the USA and globally' },
+  { year: '2023', event: 'Added video editing and social design services' },
+  { year: '2024', event: 'Agency rebranding and launch of this new website' },
 ];
 
 export default function SobrePage() {
@@ -47,13 +47,13 @@ export default function SobrePage() {
       <section className="min-h-[55vh] flex items-end border-b border-white/[0.06]">
         <div className="container pb-16 pt-[120px]">
           <Reveal>
-            <p className="section-label mb-6">SOBRE</p>
+            <p className="section-label mb-6">ABOUT</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="font-display font-light leading-tight" style={{ fontSize: 'var(--fs-h1)' }}>
-              Uma boutique.
+              One boutique.
               <br />
-              <em className="italic text-paper-dim">Seis disciplinas.</em>
+              <em className="italic text-paper-dim">Six disciplines.</em>
             </h1>
           </Reveal>
         </div>
@@ -65,23 +65,23 @@ export default function SobrePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5">
               <Reveal>
-                <p className="section-label mb-6">QUEM SOMOS</p>
+                <p className="section-label mb-6">WHO WE ARE</p>
               </Reveal>
             </div>
             <div className="lg:col-span-7">
               <Reveal delay={0.1}>
                 <p className="font-sans text-paper-dim leading-relaxed mb-6" style={{ fontSize: 'var(--fs-lead)' }}>
-                  A Arvex BR nasceu em Boa Vista, Roraima — não por acidente, mas por convicção de que qualidade de execução não tem endereço. Somos a prova de que é possível entregar trabalho de referência internacional a partir da Amazônia.
+                  Arvex was born in New York, NY — not by accident, but out of conviction that quality of execution has no address. We are proof that it is possible to deliver internationally benchmarked work.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
                 <p className="font-sans text-paper-dim leading-relaxed mb-6" style={{ fontSize: 'var(--fs-lead)' }}>
-                  Não somos uma agência de 50 pessoas com contas gigantes e processo engessado. Somos uma boutique — pequena por escolha, meticulosa por princípio. Cada projeto passa por um time reduzido que conhece profundamente o seu negócio.
+                  We are not a 50-person agency with massive accounts and rigid processes. We are a boutique — small by choice, meticulous by principle. Every project goes through a lean team that deeply understands your business.
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="font-sans text-paper-dim leading-relaxed" style={{ fontSize: 'var(--fs-lead)' }}>
-                  Integramos as seis disciplinas — sites, automação, e-commerce, identidade, vídeo e social — porque acreditamos que a melhor marca digital é aquela construída com consistência entre todos os pontos de contato, não terceirizada em pedaços para agências diferentes.
+                  We integrate the six disciplines — websites, automation, e-commerce, identity, video, and social — because we believe the best digital brand is built with consistency across all touchpoints, not outsourced in pieces to different agencies.
                 </p>
               </Reveal>
             </div>
@@ -93,7 +93,7 @@ export default function SobrePage() {
       <section className="section border-b border-white/[0.06]">
         <div className="container">
           <Reveal>
-            <p className="section-label mb-12">NOSSOS PRINCÍPIOS</p>
+            <p className="section-label mb-12">OUR PRINCIPLES</p>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.04]">
             {principles.map((p, i) => (
@@ -113,7 +113,7 @@ export default function SobrePage() {
       <section className="section border-b border-white/[0.06]">
         <div className="container">
           <Reveal>
-            <p className="section-label mb-12">TRAJETÓRIA</p>
+            <p className="section-label mb-12">TIMELINE</p>
           </Reveal>
           <div className="flex flex-col gap-0">
             {timeline.map((item, i) => (
@@ -133,7 +133,7 @@ export default function SobrePage() {
         <div className="container text-center">
           <Reveal>
             <h2 className="font-display font-light text-paper mb-6" style={{ fontSize: 'var(--fs-h2)' }}>
-              Vamos trabalhar juntos?
+              Let's work together?
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -142,7 +142,7 @@ export default function SobrePage() {
                 href="/contato"
                 className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest bg-red text-paper px-8 py-4 hover:bg-red-deep transition-colors"
               >
-                Agendar conversa →
+                Schedule a talk →
               </Link>
             </MagneticLink>
           </Reveal>

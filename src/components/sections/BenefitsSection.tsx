@@ -21,7 +21,7 @@ function VisualGrowth() {
       {/* Stat top-left */}
       <div className="flex items-start justify-between">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-1">Visitantes / mês</p>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-1">Visitantes / mes</p>
           <motion.p
             className="font-display text-3xl font-light text-white leading-none"
             initial={{ opacity: 0, y: 8 }}
@@ -33,7 +33,7 @@ function VisualGrowth() {
         </div>
         <div className="flex items-center gap-1.5 bg-[#e63946]/10 border border-[#e63946]/20 px-2 py-1 rounded-full">
           <span className="w-1.5 h-1.5 rounded-full bg-[#e63946]" />
-          <span className="font-mono text-[9px] uppercase tracking-widest text-[#e63946]">crescimento</span>
+          <span className="font-mono text-[9px] uppercase tracking-widest text-[#e63946]">crecimiento</span>
         </div>
       </div>
 
@@ -93,10 +93,10 @@ function VisualChat() {
   const isInView = useInView(ref, { once: true, margin: '-10% 0px' });
 
   const messages = [
-    { from: 'client', text: 'Olá! Gostaria de agendar.', delay: 0.2 },
-    { from: 'bot',    text: '✓ Qual serviço você precisa?', delay: 0.5 },
-    { from: 'client', text: 'Um site profissional.', delay: 0.8 },
-    { from: 'bot',    text: '✓ Confirmado! Retorno em breve.', delay: 1.1 },
+    { from: 'client', text: '¡Hola! Me gustaría agendar una cita.', delay: 0.2 },
+    { from: 'bot',    text: '✓ ¿Qué servicio necesitas?', delay: 0.5 },
+    { from: 'client', text: 'Un sitio web profesional.', delay: 0.8 },
+    { from: 'bot',    text: "✓ ¡Confirmado! Te atenderé en breve.", delay: 1.1 },
   ];
 
   return (
@@ -108,7 +108,7 @@ function VisualChat() {
         </div>
         <div>
           <p className="font-sans text-[11px] text-white font-medium leading-none">Arvex Bot</p>
-          <p className="font-mono text-[9px] text-[#25d366] mt-0.5">● online</p>
+          <p className="font-mono text-[9px] text-[#25d366] mt-0.5">● en línea</p>
         </div>
       </div>
 
@@ -180,7 +180,7 @@ function VisualBrowser() {
               <span className="font-mono text-[7px] text-white uppercase tracking-widest">Agendar →</span>
             </div>
             <div className="h-6 border border-white/[0.12] rounded px-3 flex items-center">
-              <span className="font-mono text-[7px] text-white/40 uppercase tracking-widest">Projetos</span>
+              <span className="font-mono text-[7px] text-white/40 uppercase tracking-widest">Proyectos</span>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@ function VisualBrowser() {
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.5, delay: 0.7 }}
       >
-        <p className="font-mono text-[8px] text-white/30 uppercase tracking-widest">Performance</p>
+        <p className="font-mono text-[8px] text-white/30 uppercase tracking-widest">Rendimiento</p>
         <p className="font-display text-xl text-[#10b981] font-light leading-none mt-0.5">100</p>
       </motion.div>
     </div>
@@ -251,10 +251,10 @@ export function BenefitsSection() {
         {/* Heading */}
         <div className="mb-16">
           <Reveal>
-            <p className="section-label mb-4">POR QUE INVESTIR</p>
+            <p className="section-label mb-4">POR QUÉ INVERTIR</p>
           </Reveal>
           <SplitReveal
-            text="Site ou automação"
+            text="Un sitio web o automatización"
             as="h2"
             delay={0.08}
             stagger={0.05}
@@ -262,7 +262,7 @@ export function BenefitsSection() {
             style={{ fontSize: 'var(--fs-h2)' }}
           />
           <SplitReveal
-            text="multiplicam seus clientes."
+            text="multiplica tus clientes."
             as="h2"
             delay={0.22}
             stagger={0.04}
@@ -271,9 +271,9 @@ export function BenefitsSection() {
           />
           <Reveal delay={0.4}>
             <p className="font-sans text-paper-dim mt-6 max-w-[55ch]">
-              Negócios com presença digital profissional atraem até 3× mais clientes
-              que concorrentes sem site — e automações reduzem em até 70% o tempo
-              gasto com tarefas repetitivas.
+              Los negocios con presencia digital profesional atraen hasta 3 veces más clientes
+              que la competencia sin sitio web — y las automatizaciones reducen el tiempo en
+              tareas repetitivas hasta en un 70%.
             </p>
           </Reveal>
         </div>
@@ -283,22 +283,22 @@ export function BenefitsSection() {
           <BenefitCard
             visual={<VisualGrowth />}
             accentColor="#e63946"
-            title="Mais clientes, todo dia"
-            description="Um site profissional aparece no Google 24h por dia e atrai clientes enquanto você trabalha — ou dorme."
+            title="Más clientes, cada día"
+            description="Un sitio web profesional aparece en Google 24/7 y atrae clientes mientras trabajas — o duermes."
             delay={0}
           />
           <BenefitCard
             visual={<VisualChat />}
             accentColor="#25d366"
-            title="Atendimento automático"
-            description="Com automação no WhatsApp, você confirma agendamentos e responde perguntas sem precisar digitar uma palavra."
+            title="Atención automatizada"
+            description="Con la automatización de WhatsApp, confirmas citas y respondes dudas sin escribir una sola palabra."
             delay={0.1}
           />
           <BenefitCard
             visual={<VisualBrowser />}
             accentColor="#10b981"
-            title="Primeira impressão perfeita"
-            description="Seu site é o cartão de visitas digital. Um design profissional gera confiança antes mesmo do primeiro contato."
+            title="Una primera impresión perfecta"
+            description="Tu sitio web es tu tarjeta de presentación digital. Un diseño profesional genera confianza antes del primer contacto."
             delay={0.2}
           />
         </div>

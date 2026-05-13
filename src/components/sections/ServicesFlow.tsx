@@ -20,20 +20,20 @@ export function ServicesFlow() {
   const automacaoService  = services[2]; // 03 — Automação
 
   return (
-    <FlowArt aria-label="Serviços Arvex">
+    <FlowArt aria-label="Arvex Services">
       {/* ═══════════════════════════════════════════════════════
           SEÇÃO 0 — HEADER: "O QUE FAZEMOS"
           Fundo: preto fosco
       ═══════════════════════════════════════════════════════ */}
       <FlowSection
-        aria-label="O que fazemos"
+        aria-label="What we do"
         style={{ backgroundColor: MATTE_BLACK, color: WHITE }}
       >
         <p
           className="font-mono text-xs font-bold uppercase tracking-[0.2em]"
           style={{ color: WHITE_SOFT }}
         >
-          O QUE FAZEMOS
+          WHAT WE DO
         </p>
 
         <hr className="my-[2vw] border-t border-white/[0.08]" style={{ borderStyle: 'solid' }} />
@@ -43,13 +43,13 @@ export function ServicesFlow() {
             className="font-display font-light leading-[0.88] uppercase tracking-tight"
             style={{ fontSize: 'clamp(3.5rem, 12vw, 14rem)', color: WHITE }}
           >
-            Três
+            Three
             <br />
-            <span style={{ color: WHITE_DIM }} className="italic">serviços.</span>
+            <span style={{ color: WHITE_DIM }} className="italic">services.</span>
             <br />
-            Uma
+            One
             <br />
-            <span style={{ color: WHITE_DIM }} className="italic">equipe.</span>
+            <span style={{ color: WHITE_DIM }} className="italic">team.</span>
           </h2>
         </div>
 
@@ -59,7 +59,7 @@ export function ServicesFlow() {
           className="mt-auto max-w-[50ch] font-sans leading-relaxed"
           style={{ fontSize: 'clamp(1rem, 2.5vw, 2rem)', color: WHITE_DIM }}
         >
-          Sites premium, sistemas sob medida e automação inteligente — tudo com a mesma equipe, o mesmo padrão.
+          Premium websites, custom systems, and smart automation — all with the same team, the same standard.
         </p>
       </FlowSection>
 
@@ -68,7 +68,7 @@ export function ServicesFlow() {
           Fundo: vermelho escuro
       ═══════════════════════════════════════════════════════ */}
       <FlowSection
-        aria-label="Sites"
+        aria-label="Websites"
         style={{ backgroundColor: DARK_RED, color: WHITE }}
       >
         <p
@@ -85,7 +85,7 @@ export function ServicesFlow() {
             className="font-display font-light leading-[0.85] uppercase tracking-tight"
             style={{ fontSize: 'clamp(3.5rem, 12vw, 14rem)', color: WHITE }}
           >
-            Sites
+            Websites
           </h2>
         </div>
 
@@ -123,7 +123,7 @@ export function ServicesFlow() {
             className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest group px-8 py-4 border border-white/30 rounded-full hover:bg-white/10 transition-all duration-300"
             style={{ color: WHITE }}
           >
-            Ver detalhes
+            View details
             <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
           </Link>
         </div>
@@ -134,7 +134,7 @@ export function ServicesFlow() {
           Fundo: preto fosco (variação)
       ═══════════════════════════════════════════════════════ */}
       <FlowSection
-        aria-label="Sistemas Web"
+        aria-label="Web Systems"
         style={{ backgroundColor: MATTE_BLACK_2, color: WHITE }}
       >
         <p
@@ -151,9 +151,9 @@ export function ServicesFlow() {
             className="font-display font-light leading-[0.85] uppercase tracking-tight"
             style={{ fontSize: 'clamp(3.5rem, 12vw, 14rem)', color: WHITE }}
           >
-            Sistemas
+            Web
             <br />
-            <span style={{ color: WHITE_DIM }}>Web</span>
+            <span style={{ color: WHITE_DIM }}>Systems</span>
           </h2>
         </div>
 
@@ -191,7 +191,7 @@ export function ServicesFlow() {
             className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest group px-8 py-4 border border-white/30 rounded-full hover:bg-white/10 transition-all duration-300"
             style={{ color: `rgb(230, 57, 70)` }}
           >
-            Ver detalhes
+            View details
             <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
           </Link>
         </div>
@@ -202,7 +202,7 @@ export function ServicesFlow() {
           Fundo: vermelho escuro (variação mais profunda)
       ═══════════════════════════════════════════════════════ */}
       <FlowSection
-        aria-label="Automação"
+        aria-label="Automation"
         style={{ backgroundColor: DARK_RED_2, color: WHITE }}
       >
         <p
@@ -219,9 +219,9 @@ export function ServicesFlow() {
             className="font-display font-light leading-[0.85] uppercase tracking-tight"
             style={{ fontSize: 'clamp(3.5rem, 12vw, 14rem)', color: WHITE }}
           >
-            Auto
+            Automa
             <br />
-            <span style={{ color: WHITE_DIM }}>mação</span>
+            <span style={{ color: WHITE_DIM }}>tion</span>
           </h2>
         </div>
 
@@ -259,7 +259,7 @@ export function ServicesFlow() {
             className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest group px-8 py-4 border border-white/30 rounded-full hover:bg-white/10 transition-all duration-300"
             style={{ color: WHITE }}
           >
-            Ver detalhes
+            View details
             <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
           </Link>
         </div>

@@ -44,7 +44,7 @@ export function Hero() {
   return (
     <section
       className="relative min-h-[100dvh] flex flex-col justify-center items-center overflow-hidden bg-ink"
-      aria-label="Seção principal"
+      aria-label="Main section"
     >
       {/* LineWaves — fundo WebGL */}
       <div aria-hidden="true" className="absolute inset-0 z-0">
@@ -83,7 +83,7 @@ export function Hero() {
             style={{ fontSize: 'clamp(4.5rem, 14vw, 11rem)' }}
           >
             <HeroWord
-              word="SITES"
+              word="WEBSITES"
               delay={0.2}
               className="font-display font-extrabold"
               style={{ color: '#e63946' }}
@@ -96,7 +96,7 @@ export function Hero() {
             style={{ fontSize: 'clamp(2.4rem, 6.5vw, 5.6rem)' }}
           >
             <HeroWord
-              word="AUTOMAÇÃO"
+              word="AUTOMATION"
               delay={0.3}
               className="font-display font-light"
               style={{ color: '#f5f3ee' }}
@@ -109,7 +109,7 @@ export function Hero() {
             style={{ fontSize: 'clamp(3rem, 9vw, 7.5rem)' }}
           >
             <HeroWord
-              word="SISTEMAS"
+              word="SYSTEMS"
               delay={0.4}
               className="font-mono font-medium"
               style={{
@@ -125,9 +125,9 @@ export function Hero() {
             className="flex flex-wrap gap-x-[0.22em] mt-2 justify-center"
             style={{ fontSize: 'clamp(2rem, 5vw, 4.2rem)' }}
           >
-            <HeroWord word="que" delay={0.5} className="font-display font-light text-paper" />
+            <HeroWord word="that" delay={0.5} className="font-display font-light text-paper" />
             <HeroWord
-              word="vendem."
+              word="sell."
               delay={0.58}
               className="font-display font-extrabold"
               style={{ color: '#e63946' }}
@@ -143,7 +143,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.85, duration: 0.8 }}
         >
-          {['Construídos', 'com', 'cuidado', 'obsessivo.'].map((w, i) => (
+          {['Built', 'with', 'obsessive', 'care.'].map((w, i) => (
             <HeroWord
               key={w}
               word={w}
@@ -161,8 +161,8 @@ export function Hero() {
           className="font-display font-light text-paper-dim leading-relaxed mb-14 max-w-[44ch]"
           style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.3rem)' }}
         >
-          Sites profissionais, automação inteligente e sistemas web
-          entregados com padrão premium em Boa Vista — RR.
+          Professional websites, smart automation, and web systems
+          delivered with premium standards.
         </motion.p>
 
         {/* CTAs */}
@@ -177,9 +177,9 @@ export function Hero() {
               href="/contato"
               className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest bg-red text-paper px-12 py-5 hover:bg-red-deep transition-colors duration-300 active:scale-[0.98]"
               style={{ boxShadow: '0 0 48px rgb(230 57 70 / 0.35), 0 4px 24px rgb(0 0 0 / 0.4)' }}
-              data-cursor-label="agendar"
+              data-cursor-label="schedule"
             >
-              Agendar conversa
+              Schedule a talk
               <ArrowRight size={15} />
             </Link>
           </MagneticLink>
@@ -188,7 +188,7 @@ export function Hero() {
             href="/projetos"
             className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-paper-soft hover:text-paper transition-colors duration-300"
           >
-            Ver projetos
+            View projects
             <span className="block w-0 h-px bg-paper group-hover:w-8 transition-all duration-500" />
           </Link>
         </motion.div>
@@ -201,9 +201,9 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-10"
         >
           {[
-            { num: '+30',   label: 'projetos entregues' },
-            { num: '100%',  label: 'aprovação na entrega' },
-            { num: '1–5',   label: 'dias para ter seu site' },
+            { num: '+30',   label: 'projects delivered' },
+            { num: '100%',  label: 'approval on delivery' },
+            { num: '1–5',   label: 'days to have your site' },
           ].map(({ num, label }) => (
             <div key={label} className="flex items-center gap-2.5">
               <span className="font-display font-extrabold text-red text-xl leading-none">{num}</span>
@@ -222,7 +222,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <div className="w-px h-10 bg-paper-soft/40" style={{ animation: 'scroll-pulse 2s ease-in-out infinite' }} />
-        <span className="section-label text-paper-soft/40 text-[9px]">ROLE</span>
+        <span className="section-label text-paper-soft/40 text-[9px]">SCROLL DOWN</span>
       </motion.div>
     </section>
   );

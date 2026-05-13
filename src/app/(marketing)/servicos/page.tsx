@@ -6,9 +6,9 @@ import { MagneticLink } from '@/components/primitives/MagneticLink';
 import ServicosMenuClient from './ServicosMenuClient';
 
 export const metadata: Metadata = {
-  title: 'Serviços',
+  title: 'Services',
   description:
-    'Sites em 1–5 dias, sistemas web personalizados e automação via WhatsApp. Três serviços, um padrão de execução.',
+    'Websites in 1-5 days, custom web systems, and WhatsApp automation. Three services, one standard of execution.',
 };
 
 export default function ServicosPage() {
@@ -75,7 +75,7 @@ export default function ServicosPage() {
                         href={`/servicos/${service.slug}`}
                         className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest bg-red text-paper px-6 py-3 hover:bg-red-deep transition-colors duration-300"
                       >
-                        Ver planos e preços →
+                        View plans and pricing →
                       </Link>
                     </MagneticLink>
                   </Reveal>
@@ -84,7 +84,7 @@ export default function ServicosPage() {
                 {/* Entregáveis */}
                 <div className="lg:col-span-6">
                   <Reveal delay={0.1}>
-                    <p className="section-label mb-6">O QUE INCLUI</p>
+                    <p className="section-label mb-6">WHAT'S INCLUDED</p>
                     <ul className="flex flex-col gap-3">
                       {service.deliverables.map((d) => (
                         <li key={d} className="flex items-center gap-3 font-sans text-sm text-paper-dim">
@@ -106,12 +106,12 @@ export default function ServicosPage() {
         <div className="container text-center">
           <Reveal>
             <h2 className="font-display font-light text-paper mb-8" style={{ fontSize: 'var(--fs-h2)' }}>
-              Não sabe por onde começar?
+              Don't know where to start?
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="font-sans text-paper-dim mb-10 max-w-[48ch] mx-auto">
-              Agende uma conversa gratuita. Em 30 minutos entendemos seu negócio e indicamos o melhor ponto de partida.
+              Schedule a free chat. In 30 minutes, we'll understand your business and suggest the best starting point.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -120,7 +120,7 @@ export default function ServicosPage() {
                 href="/contato"
                 className="inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest bg-red text-paper px-8 py-4 hover:bg-red-deep transition-colors duration-300"
               >
-                Agendar conversa →
+                Schedule a talk →
               </Link>
             </MagneticLink>
           </Reveal>

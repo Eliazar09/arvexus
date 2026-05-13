@@ -10,7 +10,7 @@ export function FAQ() {
           {/* Esquerda */}
           <div className="lg:col-span-4">
             <Reveal>
-              <p className="section-label mb-4">07 / DÚVIDAS</p>
+              <p className="section-label mb-4">07 / FAQ</p>
             </Reveal>
             <Reveal delay={0.1}>
               <h2
@@ -18,9 +18,9 @@ export function FAQ() {
                 id="faq-title"
                 style={{ fontSize: 'var(--fs-h2)' }}
               >
-                Perguntas
+                Frequently
                 <br />
-                <em className="italic text-paper-dim">frequentes.</em>
+                <em className="italic text-paper-dim">asked questions.</em>
               </h2>
             </Reveal>
           </div>

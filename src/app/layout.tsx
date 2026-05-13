@@ -26,30 +26,30 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.arvexagency.online"),
   title: {
-    default: "Criação de Sites e Automação em Boa Vista RR | Arvex Agency",
+    default: "Desarrollo Web Premium y Automatización | Arvex Agency",
     template: "%s | Arvex Agency",
   },
   description:
-    "Criação de sites profissionais, automação WhatsApp e sistemas web em Boa Vista, Roraima (RR). Projetos modernos entregues em poucos dias.",
+    "Desarrollo web de alta gama, automatización de WhatsApp y soluciones de software personalizadas para el mercado de América Latina. Experiencias digitales modernas entregadas con precisión.",
   keywords: [
-    "criação de sites",
-    "automação WhatsApp",
-    "sistemas web",
-    "Boa Vista RR",
-    "Roraima",
-    "agência de tecnologia",
-    "sites profissionais",
+    "diseño web",
+    "automatización de WhatsApp",
+    "sistemas web personalizados",
+    "agencia de software",
+    "boutique digital",
+    "sitios web de alta conversión",
+    "automatización de negocios",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Arvex Agency — Sites, Sistemas e Automação",
+    title: "Arvex Agency — Sistemas Web de Alta Gama y Automatización",
     description:
-      "Sites profissionais, automação WhatsApp e sistemas web em Boa Vista RR.",
+      "Sitios web premium, automatización de WhatsApp y soluciones de software a medida para su negocio.",
     url: "https://www.arvexagency.online",
     siteName: "Arvex Agency",
-    locale: "pt_BR",
+    locale: "es_419",
     type: "website",
     images: [
       {
@@ -62,9 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arvex Agency — Sites e Automação",
+    title: "Arvex Agency — Sitios Web y Automatización",
     description:
-      "Sites profissionais, automação WhatsApp e sistemas web em Boa Vista RR.",
+      "Sitios web profesionales, automatización de WhatsApp y sistemas web en América Latina.",
     images: ["https://www.arvexagency.online/og"],
   },
 };
@@ -73,20 +73,14 @@ const schemaOrg = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Arvex Agency',
-  description: 'Boutique de tecnologia em Boa Vista, Roraima. Sites profissionais, automação de WhatsApp e sistemas web.',
+  description: 'Boutique de tecnología en América Latina. Sitios web profesionales, automatización de WhatsApp y sistemas web.',
   url: 'https://www.arvexagency.online',
-  telephone: '+55-95-9-8107-5842',
+  telephone: '+55-95-98107-5842',
   email: 'arvexagency@outlook.com',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Boa Vista',
-    addressRegion: 'RR',
-    addressCountry: 'BR',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 2.8235,
-    longitude: -60.6758,
+    addressLocality: 'América Latina',
+    addressRegion: 'LATAM',
   },
   openingHoursSpecification: [
     {
@@ -96,15 +90,15 @@ const schemaOrg = {
       closes: '18:00',
     },
   ],
-  priceRange: 'R$250–R$699/mês',
-  currenciesAccepted: 'BRL',
-  paymentAccepted: 'Pix, Cartão, Transferência',
+  priceRange: 'US$250–US$699/mes',
+  currenciesAccepted: 'USD, EUR, BRL',
+  paymentAccepted: 'Credit Card, PayPal, Bank Transfer',
   areaServed: {
-    '@type': 'Country',
-    name: 'Brasil',
+    '@type': 'Region',
+    name: 'América Latina',
   },
   sameAs: [
-    'https://instagram.com/arvexbr',
+    'https://instagram.com/arvexagency',
     'https://linkedin.com/company/arvexbr',
   ],
 };
@@ -112,7 +106,7 @@ const schemaOrg = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="pt-BR"
+      lang="es-419"
       className={`dark ${fraunces.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
       <head>
@@ -126,7 +120,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-red focus:text-paper focus:text-sm"
         >
-          Pular para conteúdo
+          Saltar al contenido
         </a>
         {children}
       </body>
