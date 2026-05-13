@@ -9,10 +9,10 @@ import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/servicos', label: 'Services' },
-  { href: '/projetos', label: 'Projects' },
-  { href: '/sobre',    label: 'About'  },
-  { href: '/contato',  label: 'Contact'  },
+  { href: '/servicos', label: 'Servicios' },
+  { href: '/projetos', label: 'Proyectos' },
+  { href: '/sobre',    label: 'Sobre nosotros'  },
+  { href: '/contato',  label: 'Contacto'  },
 ];
 
 function NavLink({
@@ -76,7 +76,7 @@ export function Nav() {
           )}
         >
           {/* ── Logo (esquerda) ── */}
-          <Link href="/" aria-label="Arvex BR — home" className="flex items-center gap-2 shrink-0 mr-6">
+          <Link href="/" aria-label="Arvex — inicio" className="flex items-center gap-2 shrink-0 mr-6">
             <Image
               src="/logo.png"
               alt="Arvex"
@@ -94,7 +94,7 @@ export function Nav() {
           </Link>
 
           {/* ── Links (centro) ── */}
-          <nav className="hidden md:flex items-center gap-0.5 flex-1 justify-center" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-0.5 flex-1 justify-center" aria-label="Navegación principal">
             {navLinks.map((link) => (
               <NavLink key={link.href} {...link} pathname={pathname} />
             ))}
@@ -103,7 +103,7 @@ export function Nav() {
           {/* ── CTA + WhatsApp (direita) ── */}
           <div className="hidden md:flex items-center gap-2 ml-6 shrink-0">
             <a
-              href="https://wa.me/15550198"
+              href="https://wa.me/5595981075842"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -121,7 +121,7 @@ export function Nav() {
               href="/contato"
               className="inline-flex items-center font-mono text-[11px] uppercase tracking-widest bg-paper text-ink px-4 py-2 rounded hover:bg-paper-dim transition-colors duration-200 font-medium"
             >
-              Schedule
+              Agendar
             </Link>
           </div>
 
@@ -129,7 +129,7 @@ export function Nav() {
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden ml-auto w-8 h-8 flex items-center justify-center text-paper-soft hover:text-paper transition-colors"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           >
             {open ? (
               <X size={16} />
@@ -160,12 +160,12 @@ export function Nav() {
                   Arvex
                 </span>
               </Link>
-              <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-paper-soft hover:text-paper">
+              <button onClick={() => setOpen(false)} aria-label="Cerrar menú" className="text-paper-soft hover:text-paper">
                 <X size={18} />
               </button>
             </div>
 
-            <nav className="flex flex-col px-6 pt-8 gap-0" aria-label="Mobile menu">
+            <nav className="flex flex-col px-6 pt-8 gap-0" aria-label="Menú móvil">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -191,7 +191,7 @@ export function Nav() {
                   href="/contato"
                   className="inline-flex items-center font-mono text-xs uppercase tracking-widest bg-paper text-ink px-6 py-3 hover:bg-paper-dim transition-colors"
                 >
-                  Schedule a call
+                  Agendar una cita
                 </Link>
               </motion.div>
             </nav>

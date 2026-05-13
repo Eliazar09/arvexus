@@ -1,24 +1,24 @@
 'use client';
 
 const clients = [
-  { name: 'Toka Restaurant',        tag: 'Website'    },
-  { name: 'Veterinary Hospital',    tag: 'Website'    },
+  { name: 'Restaurante Toka',      tag: 'Sitio Web'    },
+  { name: 'Hospital Veterinario',  tag: 'Sitio Web'    },
   { name: 'Nova Living',            tag: 'E-commerce' },
   { name: 'Meridian',               tag: 'Dashboard'  },
-  { name: 'Lumina Clinic',          tag: 'Website'    },
-  { name: 'Roraima Distributor',    tag: 'Automation' },
-  { name: 'Panorama Real Estate',   tag: 'System'     },
-  { name: 'JK Fashion Studio',      tag: 'Website'    },
+  { name: 'Lumina Clinic',          tag: 'Sitio Web'    },
+  { name: 'Distribuidora Roraima', tag: 'Automatización' },
+  { name: 'Inmobiliaria Panorama', tag: 'Sistema'     },
+  { name: 'JK Fashion Studio',      tag: 'Sitio Web'    },
 ];
 
 export function LogoStrip() {
   const items = [...clients, ...clients, ...clients];
 
   return (
-    <section className="border-b border-white/[0.06] overflow-hidden py-5" aria-label="Clients served">
+    <section className="border-b border-white/[0.06] overflow-hidden py-5" aria-label="Clientes atendidos">
       <div className="container mb-4">
         <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper-soft/25 text-center">
-          Companies that trust Arvex
+          Empresas que confían en Arvex
         </p>
       </div>
 

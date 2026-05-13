@@ -9,56 +9,56 @@ import { CheckCheck, Wrench, Zap, LayoutDashboard } from 'lucide-react';
 const plans = [
   {
     id: 'manutencao',
-    name: 'Website Maintenance',
-    tagline: "Already have a site and need fixes, updates, or improvements? We've got you covered.",
+    name: 'Mantenimiento Web',
+    tagline: "¿Ya tienes un sitio y necesitas correcciones, actualizaciones o mejoras? Nosotros nos encargamos.",
     price: 250,
-    period: '/month',
-    cta: 'Hire maintenance',
+    period: '/mes',
+    cta: 'Contratar mantenimiento',
     popular: false,
     Icon: Wrench,
     features: [
-      'Fixes and adjustments to your current site',
-      'Automatic weekly backup',
-      'Security updates',
-      '24/7 uptime monitoring',
-      '1 content change per month',
-      'WhatsApp support',
+      'Correcciones y ajustes a tu sitio actual',
+      'Backup semanal automático',
+      'Actualizaciones de seguridad',
+      'Monitoreo de tiempo en línea 24/7',
+      '1 cambio de contenido por mes',
+      'Soporte vía WhatsApp',
     ],
   },
   {
     id: 'automacao',
-    name: 'Automation',
-    tagline: 'WhatsApp and smart flows that work while you sleep.',
+    name: 'Automatización',
+    tagline: 'WhatsApp y flujos inteligentes que trabajan mientras duermes.',
     price: 499,
-    period: '/month',
-    cta: 'Automate now',
+    period: '/mes',
+    cta: 'Automatizar ahora',
     popular: true,
     Icon: Zap,
     features: [
-      'Automatic WhatsApp customer service',
-      'Custom message flows',
-      'Appointment confirmation',
-      'Automatic notifications',
-      'Integration with current systems',
-      'Monthly performance report',
+      'Atención automática vía WhatsApp',
+      'Flujos de mensajes personalizados',
+      'Confirmación de citas',
+      'Notificaciones automáticas',
+      'Integración con sistemas actuales',
+      'Informe de rendimiento mensual',
     ],
   },
   {
     id: 'automacao-crm',
-    name: 'Automation + CRM',
-    tagline: 'Complete automation with integrated control panel and customer management.',
+    name: 'Automatización + CRM',
+    tagline: 'Automatización completa con panel de control integrado y gestión de clientes.',
     price: 699,
-    period: '/month',
-    cta: 'I want the complete plan',
+    period: '/mes',
+    cta: 'Quiero el plan completo',
     popular: false,
     Icon: LayoutDashboard,
     features: [
-      'Everything in the Automation plan',
-      'CRM integrated with WhatsApp',
-      'Real-time metrics dashboard',
-      'Lead management and sales funnel',
-      'Advanced monthly reports',
-      'Onboarding and training included',
+      'Todo lo del plan Automatización',
+      'CRM integrado con WhatsApp',
+      'Panel de métricas en tiempo real',
+      'Gestión de leads y embudo de ventas',
+      'Informes mensuales avanzados',
+      'Onboarding y capacitación incluidos',
     ],
   },
 ];
@@ -87,7 +87,7 @@ function PlanCard({ plan, index }: { plan: typeof plans[0]; index: number }) {
       {/* Popular badge */}
       {plan.popular && (
         <span className="absolute -top-[13px] left-6 font-mono text-[9px] uppercase tracking-[0.18em] bg-red text-paper px-3 py-1">
-          Most popular
+          Más popular
         </span>
       )}
 
@@ -148,7 +148,7 @@ function PlanCard({ plan, index }: { plan: typeof plans[0]; index: number }) {
         {/* Feature list */}
         <div className="border-t border-white/[0.06] pt-7">
           <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper-soft/35 mb-5">
-            What's included
+            Qué incluye
           </p>
           <ul className="flex flex-col gap-3.5">
             {plan.features.map((feature, i) => (
@@ -191,7 +191,7 @@ export function PricingSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              05 / PRICING
+              05 / PRECIOS
             </motion.p>
           </div>
           <div className="md:col-span-9">
@@ -202,8 +202,8 @@ export function PricingSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              Clear investment,<br />
-              <span style={{ color: 'rgb(var(--red))' }}>measurable results.</span>
+              Inversión clara,<br />
+              <span style={{ color: 'rgb(var(--red))' }}>resultados medibles.</span>
             </motion.h2>
             <motion.p
               className="font-sans text-paper-dim mt-5 max-w-[50ch]"
@@ -212,7 +212,7 @@ export function PricingSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.22 }}
             >
-              No surprises. Fixed prices, clear scope, and guaranteed delivery.
+              Sin sorpresas. Precios fijos, alcance claro y entrega garantizada.
             </motion.p>
           </div>
         </div>
@@ -236,16 +236,16 @@ export function PricingSection() {
           </div>
           <div className="flex-1">
             <p className="font-mono text-[11px] uppercase tracking-widest text-paper mb-1">
-              Satisfaction guarantee
+              Garantía de satisfacción
             </p>
             <p className="font-sans text-sm text-paper-dim leading-relaxed">
-              If you don't like the design within the first 48h, we'll refund 100% of the deposit, no questions asked.
-              We work until you are completely satisfied.
+              Si no te gusta el diseño en las primeras 48h, te devolvemos el 100% del depósito, sin preguntas.
+              Trabajamos hasta que estés completamente satisfecho.
             </p>
           </div>
           <div className="shrink-0 text-right hidden sm:block">
             <span className="font-display font-extrabold text-3xl text-red leading-none">100%</span>
-            <p className="font-mono text-[9px] uppercase tracking-widest text-paper-soft/40 mt-1">refund</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-paper-soft/40 mt-1">reembolso</p>
           </div>
         </motion.div>
 
@@ -259,7 +259,7 @@ export function PricingSection() {
           <div className="flex items-center gap-2">
           </div>
           <p className="font-mono text-[10px] text-paper-soft/25 tracking-wide text-center sm:text-right">
-            Systems upon request · Installments available · 50% upfront + 50% on delivery
+            Sistemas bajo pedido · Cuotas disponibles · 50% anticipo + 50% entrega
           </p>
         </motion.div>
 

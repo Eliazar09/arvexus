@@ -8,12 +8,12 @@ import { projects, projectCategories } from '@/content/projects';
 import type { ProjectCategory } from '@/content/projects';
 import { cn } from '@/lib/utils';
 
-type Filter = 'All' | ProjectCategory;
+type Filter = 'Todos' | ProjectCategory;
 
 export default function ProjetosPage() {
-  const [active, setActive] = useState<Filter>('All');
+  const [active, setActive] = useState<Filter>('Todos');
 
-  const filtered = active === 'All'
+  const filtered = active === 'Todos'
     ? projects
     : projects.filter((p) => p.category === active);
 
@@ -23,11 +23,11 @@ export default function ProjetosPage() {
       <section className="min-h-[45vh] flex items-end border-b border-white/[0.06]">
         <div className="container pb-16 pt-[120px]">
           <Reveal>
-            <p className="section-label mb-6">PROJECTS</p>
+            <p className="section-label mb-6">PROYECTOS</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="font-display font-light leading-tight" style={{ fontSize: 'var(--fs-h1)' }}>
-              Selected work.
+              Trabajos seleccionados.
             </h1>
           </Reveal>
         </div>
@@ -80,7 +80,7 @@ export default function ProjetosPage() {
           {filtered.length === 0 && (
             <div className="py-24 text-center">
               <p className="font-display text-2xl font-light text-paper-soft">
-                No projects in this category yet.
+                Aún no hay proyectos en esta categoría.
               </p>
             </div>
           )}

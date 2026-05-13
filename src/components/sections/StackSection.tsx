@@ -242,9 +242,9 @@ function TechCounter() {
   }, [isInView, count, rounded]);
 
   const stats = [
-    { value: displayCount.toString() + '+', label: 'Technologies' },
-    { value: '4', label: 'Categories' },
-    { value: '100%', label: 'Modern' },
+    { value: displayCount.toString() + '+', label: 'Tecnologías' },
+    { value: '4', label: 'Categorías' },
+    { value: '100%', label: 'Modernas' },
   ];
 
   return (
@@ -270,8 +270,8 @@ function CategoryLabels() {
   const categories = [
     { name: 'Frontend', position: 'top-4 left-4 md:top-8 md:left-8' },
     { name: 'Backend', position: 'top-4 right-4 md:top-8 md:right-8' },
-    { name: 'Automation', position: 'bottom-4 left-4 md:bottom-8 md:left-8' },
-    { name: 'Design', position: 'bottom-4 right-4 md:bottom-8 md:right-8' },
+    { name: 'Automatización', position: 'bottom-4 left-4 md:bottom-8 md:left-8' },
+    { name: 'Diseño', position: 'bottom-4 right-4 md:bottom-8 md:right-8' },
   ];
 
   return (
@@ -317,10 +317,10 @@ export function StackSection() {
       <div className="container">
         <div className="mb-10 md:mb-16 text-center">
           <Reveal>
-            <p className="section-label mb-4">OUR STACK</p>
+            <p className="section-label mb-4">NUESTRO STACK</p>
           </Reveal>
           <SplitReveal
-            text="Cutting-edge technology"
+            text="Tecnología de vanguardia"
             as="h2"
             delay={0.08}
             stagger={0.04}
@@ -328,7 +328,7 @@ export function StackSection() {
             style={{ fontSize: 'var(--fs-h2)' } as React.CSSProperties}
           />
           <SplitReveal
-            text="for scalable projects."
+            text="para proyectos escalables."
             as="h2"
             delay={0.2}
             stagger={0.04}
@@ -337,7 +337,7 @@ export function StackSection() {
           />
           <Reveal delay={0.35}>
             <p className="font-sans text-paper-dim mt-6 max-w-[52ch] mx-auto">
-              The most modern tools on the market to ensure high performance, security, and automation.
+              Las herramientas más modernas del mercado para garantizar alto rendimiento, seguridad y automatización.
             </p>
           </Reveal>
         </div>

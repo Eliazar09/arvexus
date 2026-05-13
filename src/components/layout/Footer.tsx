@@ -132,7 +132,7 @@ export function Footer() {
             <LocalClock className="font-mono text-xs text-paper-soft/40 uppercase tracking-wider" />
           </div>
           <span className="font-mono text-xs text-paper-soft/30 uppercase tracking-wider">
-            Nueva York, NY
+            América Latina
           </span>
         </div>
 

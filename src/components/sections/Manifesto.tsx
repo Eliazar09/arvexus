@@ -29,19 +29,19 @@ export function Manifesto() {
                 className="font-display font-light italic leading-tight"
                 style={{ fontSize: 'var(--fs-h2)' }}
               >
-                <WaveText text="We believe that technology done well is " className="text-paper-dim" />
+                <WaveText text="Creemos que la tecnología bien hecha es " className="text-paper-dim" />
                 <WaveText
                   text="invisible"
                   style={{ color: 'rgb(var(--paper))', fontVariationSettings: '"SOFT" 100, "opsz" 144' }}
                 />
-                <WaveText text=" and that a brand well-crafted is " className="text-paper-dim" />
+                <WaveText text=" y que una marca bien construida es " className="text-paper-dim" />
                 <WaveText
                   text="inevitable."
                   style={{ color: 'rgb(var(--red))', fontVariationSettings: '"SOFT" 100, "opsz" 144' }}
                 />
                 <br />
                 <WaveText
-                  text="We build both, in the same place, with the same care."
+                  text="Construimos ambas, en el mismo lugar, con el mismo cuidado."
                   className="text-paper-dim"
                 />
               </blockquote>

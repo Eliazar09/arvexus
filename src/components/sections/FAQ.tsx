@@ -18,9 +18,9 @@ export function FAQ() {
                 id="faq-title"
                 style={{ fontSize: 'var(--fs-h2)' }}
               >
-                Frequently
+                Preguntas
                 <br />
-                <em className="italic text-paper-dim">asked questions.</em>
+                <em className="italic text-paper-dim">frecuentes.</em>
               </h2>
             </Reveal>
           </div>

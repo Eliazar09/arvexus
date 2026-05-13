@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-const row1 = ['Sitios Web', 'Sistemas Web', 'Automatización', 'Nueva York – NY'];
+const row1 = ['Sitios Web', 'Sistemas Web', 'Automatización', 'América Latina'];
 const row2 = ['1-5 días hábiles', 'Diseño exclusivo', 'Mobile-first', 'SEO incluido', 'Soporte post-entrega'];
 
 function Ticker({

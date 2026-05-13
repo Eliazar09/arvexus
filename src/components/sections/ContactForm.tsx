@@ -18,24 +18,24 @@ import { cn } from '@/lib/utils';
 
 const schema = z.object({
   name:           z.string().optional(),
-  email:          z.string().email('Invalid email'),
+  email:          z.string().email('Email inválido'),
   whatsappCode:   z.string(),
-  whatsappNumber: z.string().min(8, 'Invalid number'),
+  whatsappNumber: z.string().min(8, 'Número inválido'),
   company:        z.string().optional(),
-  segment:        z.string().min(1,  'Select the segment'),
+  segment:        z.string().min(1,  'Seleccione el segmento'),
   hasSite:        z.enum(['sim', 'nao']),
   currentSiteUrl: z.string().optional(),
-  service:        z.string().min(1,  'Select a service'),
-  goal:           z.string().min(1,  'Select a goal'),
-  timeline:       z.string().min(1,  'Select a timeline'),
-  message:        z.string().min(10, 'Tell us more about the project (min. 10 chars)'),
+  service:        z.string().min(1,  'Seleccione un servicio'),
+  goal:           z.string().min(1,  'Seleccione un objetivo'),
+  timeline:       z.string().min(1,  'Seleccione un plazo'),
+  message:        z.string().min(10, 'Cuéntenos más sobre el proyecto (mín. 10 caracteres)'),
   contactMethod:  z.enum(['mensagem', 'meet']),
   meetDate:       z.string().optional(),
   meetTime:       z.string().optional(),
 }).superRefine((data, ctx) => {
   if (data.contactMethod === 'meet') {
-    if (!data.meetDate) ctx.addIssue({ code: 'custom', path: ['meetDate'], message: 'Select a date' });
-    if (!data.meetTime) ctx.addIssue({ code: 'custom', path: ['meetTime'], message: 'Select a time' });
+    if (!data.meetDate) ctx.addIssue({ code: 'custom', path: ['meetDate'], message: 'Seleccione una fecha' });
+    if (!data.meetTime) ctx.addIssue({ code: 'custom', path: ['meetTime'], message: 'Seleccione una hora' });
   }
 });
 
@@ -44,48 +44,48 @@ type FormData = z.infer<typeof schema>;
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const STEPS = [
-  { id: 'voce',      label: 'You'         },
-  { id: 'empresa',   label: 'Company'      },
-  { id: 'servico',   label: 'Service'      },
-  { id: 'projeto',   label: 'Project'      },
-  { id: 'agenda',    label: 'Scheduling'  },
+  { id: 'voce',      label: 'Usted'         },
+  { id: 'empresa',   label: 'Empresa'      },
+  { id: 'servico',   label: 'Servicio'      },
+  { id: 'projeto',   label: 'Proyecto'      },
+  { id: 'agenda',    label: 'Agenda'  },
 ];
 
 const SEGMENTS = [
-  'Restaurant / Food',
-  'Health / Clinic / Veterinary',
-  'Law / Consulting',
-  'Retail / Shop',
-  'Education / Courses',
-  'Beauty / Aesthetics',
-  'Real Estate / Construction',
-  'Technology / SaaS',
-  'Other',
+  'Restaurante / Alimentación',
+  'Salud / Clínica / Veterinaria',
+  'Derecho / Consultoría',
+  'Venta minorista / Tienda',
+  'Educación / Cursos',
+  'Belleza / Estética',
+  'Inmobiliaria / Construcción',
+  'Tecnología / SaaS',
+  'Otro',
 ];
 
 const SERVICES = [
-  { id: 'manutencao',  label: 'Website Maintenance',  price: '$50/mo', Icon: Wrench,          desc: 'Fixes, updates, and support for your existing site'          },
-  { id: 'automacao',   label: 'WhatsApp Automation',  price: '$99/mo', Icon: Zap,             desc: 'Automatic customer service and smart flows on WhatsApp'     },
-  { id: 'crm',         label: 'Automation + CRM',     price: '$149/mo', Icon: LayoutDashboard, desc: 'Complete automation with CRM, dashboard, and client management'   },
-  { id: 'site-novo',   label: 'New Website',           price: 'On request',Icon: Globe,          desc: 'Professional website from scratch, delivered in 1–5 business days'        },
-  { id: 'sistema',     label: 'Web System',         price: 'On request',Icon: Code2,          desc: 'Custom web application or system for your business'           },
-  { id: 'outro',       label: 'Other / Not sure',     price: 'Let\'s see',  Icon: HelpCircle,      desc: 'Tell us what you need and we\'ll find the best solution'  },
+  { id: 'manutencao',  label: 'Mantenimiento de Sitios Web',  price: '$50/mes', Icon: Wrench,          desc: 'Arreglos, actualizaciones y soporte para su sitio existente'          },
+  { id: 'automacao',   label: 'Automatización de WhatsApp',  price: '$99/mes', Icon: Zap,             desc: 'Atención automática y flujos inteligentes en WhatsApp'     },
+  { id: 'crm',         label: 'Automatización + CRM',     price: '$149/mes', Icon: LayoutDashboard, desc: 'Automatización completa con CRM, dashboard y gestión de clientes'   },
+  { id: 'site-novo',   label: 'Nuevo Sitio Web',           price: 'A consultar',Icon: Globe,          desc: 'Sitio web profesional desde cero, entregado en 1–5 días hábiles'        },
+  { id: 'sistema',     label: 'Sistema Web',         price: 'A consultar',Icon: Code2,          desc: 'Aplicación web o sistema a medida para su negocio'           },
+  { id: 'outro',       label: 'Otro / No estoy seguro',     price: 'A definir',  Icon: HelpCircle,      desc: 'Cuéntenos qué necesita y encontraremos la mejor solución'  },
 ];
 
 const GOALS = [
-  'Attract more clients online',
-  'Automate customer service',
-  'Organize and manage leads',
-  'Professionalize my digital presence',
-  'Replace outdated website',
-  'Launch product or company',
+  'Atraer más clientes online',
+  'Automatizar la atención al cliente',
+  'Organizar y gestionar prospectos (leads)',
+  'Profesionalizar mi presencia digital',
+  'Reemplazar sitio web desactualizado',
+  'Lanzar producto o empresa',
 ];
 
 const TIMELINES = [
-  { id: 'urgente',  label: 'Urgent',    sub: 'up to 1 week'   },
-  { id: 'breve',    label: 'Soon',      sub: '1–2 weeks'    },
-  { id: 'normal',   label: 'Normal',     sub: 'within 1 month' },
-  { id: 'flex',     label: 'No rush', sub: '2+ months'       },
+  { id: 'urgente',  label: 'Urgente',    sub: 'hasta 1 semana'   },
+  { id: 'breve',    label: 'Pronto',      sub: '1–2 semanas'    },
+  { id: 'normal',   label: 'Normal',     sub: 'en 1 mes' },
+  { id: 'flex',     label: 'Sin prisa', sub: '2+ meses'       },
 ];
 
 const TIME_SLOTS = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
@@ -240,18 +240,18 @@ export function ContactForm() {
     }
 
     // 3. Build WhatsApp Text requesting the PDF attachment
-    const message = `*New Contact via Website* 🌐
+    const message = `*Nuevo Contacto vía Sitio Web* 🌐
 
-*Name:* ${_data.name || 'Not provided'}
+*Nombre:* ${_data.name || 'No proporcionado'}
 *WhatsApp:* ${_data.whatsappCode} ${_data.whatsappNumber}
-*Service:* ${_data.service}
+*Servicio:* ${_data.service}
 
-*Return Preference:* ${_data.contactMethod === 'meet' ? `Google Meet (${_data.meetDate} at ${_data.meetTime})` : 'Message only'}
+*Preferencia de Contacto:* ${_data.contactMethod === 'meet' ? `Google Meet (${_data.meetDate} a las ${_data.meetTime})` : 'Solo mensaje'}
 
-_💡 Hello, I just generated my detailed briefing in PDF through your website! I am sending the attached PDF file below so we can proceed._ 👇`;
+_💡 ¡Hola! Acabo de generar mi briefing detallado en PDF a través de su sitio web. Envío el archivo PDF adjunto a continuación para que podamos proceder._ 👇`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/15550198?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/5595981075842?text=${encodedMessage}`;
     
     // Pequena pausa para garantir o download do PDF antes de abrir a nova aba
     await new Promise((r) => setTimeout(r, 500));
@@ -276,19 +276,19 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
         </div>
         <div>
           <h3 className="font-display text-3xl font-light text-paper mb-2">
-            {vals.contactMethod === 'meet' ? 'Meeting scheduled.' : 'Message received.'}
+            {vals.contactMethod === 'meet' ? 'Reunión programada.' : 'Mensaje recibido.'}
           </h3>
           <p className="font-sans text-paper-dim leading-relaxed max-w-[42ch]">
             {vals.contactMethod === 'meet'
-              ? `You chose ${vals.meetDate} at ${vals.meetTime}. We'll send the Google Meet link to ${vals.email} and confirm via WhatsApp.`
-              : `We will contact you within 24 hours at ${vals.email} or via WhatsApp.`}
+              ? `Usted eligió el ${vals.meetDate} a las ${vals.meetTime}. Enviaremos el enlace de Google Meet a ${vals.email} y confirmaremos por WhatsApp.`
+              : `Nos pondremos en contacto con usted en un plazo de 24 horas a través de ${vals.email} o por WhatsApp.`}
           </p>
         </div>
         <div className="border-t border-white/[0.06] pt-6">
           <p className="font-mono text-[10px] uppercase tracking-widest text-paper-soft/40">
-            Meanwhile, check out our projects →{' '}
+            Mientras tanto, vea nuestros proyectos →{' '}
             <a href="/projetos" className="text-paper-soft hover:text-paper transition-colors">
-              /projects
+              /proyectos
             </a>
           </p>
         </div>
@@ -339,7 +339,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
       {/* ── Form ───────────────────────────────────────────────────────────────── */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <AnimatePresence mode="wait" custom={dir}>
-          {/* ── STEP 0: Você ─────────────────────────────────────────────────── */}
+          {/* ── STEP 0: Usted ─────────────────────────────────────────────────── */}
           {step === 0 && (
             <motion.div key="s0" custom={dir} variants={variants}
               initial="enter" animate="center" exit="exit"
@@ -347,15 +347,15 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               className="flex flex-col gap-8"
             >
               <div>
-                <p className="font-display text-xl font-light text-paper mb-1">Who are you?</p>
-                <p className="font-sans text-sm text-paper-soft/50">Let's introduce ourselves first.</p>
+                <p className="font-display text-xl font-light text-paper mb-1">¿Quién es usted?</p>
+                <p className="font-sans text-sm text-paper-soft/50">Primero, presentémonos.</p>
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label>Your full name</Label>
+                <Label>Su nombre completo</Label>
                 <TextInput
                   {...register('name')}
-                  placeholder="What is your name?"
+                  placeholder="¿Cuál es su nombre?"
                   autoFocus
                   error={errors.name?.message}
                 />
@@ -366,7 +366,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                 <TextInput
                   {...register('email')}
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder="su@email.com"
                   error={errors.email?.message}
                 />
               </div>
@@ -415,7 +415,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                                 type="tel"
                                 value={maskPhone(numField.value || '', codeField.value)}
                                 onChange={(e) => numField.onChange(maskPhone(e.target.value, codeField.value))}
-                                placeholder={codeField.value === '+55' ? "(95) 90000-0000" : "WhatsApp Number"}
+                                placeholder={codeField.value === '+55' ? "(95) 90000-0000" : "Número de WhatsApp"}
                                 className="w-full bg-transparent py-3 font-sans text-base text-paper placeholder:text-paper-soft/30 focus:outline-none"
                               />
                             </div>
@@ -427,7 +427,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                   )}
                 />
                 <p className="font-mono text-[9px] text-paper-soft/30 tracking-wide mt-1">
-                  We use it only to confirm meetings or send proposals
+                  Lo usamos solo para confirmar reuniones o enviar propuestas
                 </p>
               </div>
             </motion.div>
@@ -441,21 +441,21 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               className="flex flex-col gap-8"
             >
               <div>
-                <p className="font-display text-xl font-light text-paper mb-1">About your company</p>
-                <p className="font-sans text-sm text-paper-soft/50">Helps us understand the context.</p>
+                <p className="font-display text-xl font-light text-paper mb-1">Sobre su empresa</p>
+                <p className="font-sans text-sm text-paper-soft/50">Nos ayuda a entender el contexto.</p>
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label>Company or project name</Label>
+                <Label>Nombre de la empresa o proyecto</Label>
                 <TextInput
                   {...register('company')}
-                  placeholder="Ex: Total Health Clinic, New Store..."
+                  placeholder="Ej: Clínica Total Health, Nueva Tienda..."
                   error={errors.company?.message}
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label>Segment / Industry *</Label>
+                <Label>Segmento / Industria *</Label>
                 <select
                   {...register('segment')}
                   className={cn(
@@ -464,7 +464,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                     errors.segment ? 'border-red/60' : 'border-white/15 focus:border-red'
                   )}
                 >
-                  <option value="" className="bg-ink-2">Select the segment...</option>
+                  <option value="" className="bg-ink-2">Seleccione el segmento...</option>
                   {SEGMENTS.map((s) => (
                     <option key={s} value={s} className="bg-ink-2">{s}</option>
                   ))}
@@ -473,7 +473,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               </div>
 
               <div className="flex flex-col gap-3">
-                <Label>Do you already have a website? *</Label>
+                <Label>¿Ya tiene un sitio web? *</Label>
                 <div className="flex gap-3">
                   {(['sim', 'nao'] as const).map((v) => (
                     <Controller key={v} control={control} name="hasSite"
@@ -488,7 +488,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                               : 'border-white/10 text-paper-soft/50 hover:border-white/20'
                           )}
                         >
-                          {v === 'sim' ? 'Yes, I do' : 'No, I don\'t'}
+                          {v === 'sim' ? 'Sí, tengo' : 'No, no tengo'}
                         </button>
                       )}
                     />
@@ -504,22 +504,22 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                   transition={{ duration: 0.3 }}
                   className="flex flex-col gap-2"
                 >
-                  <Label>Current website URL</Label>
+                  <Label>URL del sitio web actual</Label>
                   <TextInput
                     {...register('currentSiteUrl')}
                     type="url"
-                    placeholder="https://yourwebsite.com"
+                    placeholder="https://susitioweb.com"
                     error={errors.currentSiteUrl?.message}
                   />
                   <p className="font-mono text-[9px] text-paper-soft/30 tracking-wide">
-                    Optional — but very helpful for analysis
+                    Opcional — pero muy útil para el análisis
                   </p>
                 </motion.div>
               )}
             </motion.div>
           )}
 
-          {/* ── STEP 2: Serviço ──────────────────────────────────────────────── */}
+          {/* ── STEP 2: Servicio ──────────────────────────────────────────────── */}
           {step === 2 && (
             <motion.div key="s2" custom={dir} variants={variants}
               initial="enter" animate="center" exit="exit"
@@ -527,8 +527,8 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               className="flex flex-col gap-6"
             >
               <div>
-                <p className="font-display text-xl font-light text-paper mb-1">What do you need?</p>
-                <p className="font-sans text-sm text-paper-soft/50">Select the service closest to your goal.</p>
+                <p className="font-display text-xl font-light text-paper mb-1">¿Qué necesita?</p>
+                <p className="font-sans text-sm text-paper-soft/50">Seleccione el servicio más cercano a su objetivo.</p>
               </div>
 
               <Controller control={control} name="service"
@@ -575,7 +575,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
             </motion.div>
           )}
 
-          {/* ── STEP 3: Projeto ──────────────────────────────────────────────── */}
+          {/* ── STEP 3: Proyecto ──────────────────────────────────────────────── */}
           {step === 3 && (
             <motion.div key="s3" custom={dir} variants={variants}
               initial="enter" animate="center" exit="exit"
@@ -583,12 +583,12 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               className="flex flex-col gap-8"
             >
               <div>
-                <p className="font-display text-xl font-light text-paper mb-1">About the project</p>
-                <p className="font-sans text-sm text-paper-soft/50">The more detail, the better the proposal.</p>
+                <p className="font-display text-xl font-light text-paper mb-1">Sobre el proyecto</p>
+                <p className="font-sans text-sm text-paper-soft/50">Cuanto más detalle, mejor será la propuesta.</p>
               </div>
 
               <div className="flex flex-col gap-3">
-                <Label>What is the main goal? *</Label>
+                <Label>¿Cuál es el objetivo principal? *</Label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <Controller control={control} name="goal"
                     render={({ field }) => (
@@ -611,7 +611,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               </div>
 
               <div className="flex flex-col gap-3">
-                <Label>What is the ideal timeline? *</Label>
+                <Label>¿Cuál es el plazo ideal? *</Label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   <Controller control={control} name="timeline"
                     render={({ field }) => (
@@ -648,11 +648,11 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label>Describe the project *</Label>
+                <Label>Describa el proyecto *</Label>
                 <textarea
                   {...register('message')}
                   rows={4}
-                  placeholder="What do you want to build? What problem does it solve? Do you have any reference sites or apps you admire?"
+                  placeholder="¿Qué desea construir? ¿Qué problema resuelve? ¿Tiene algún sitio o app de referencia que admire?"
                   className={cn(
                     'w-full bg-transparent border-b py-3 font-sans text-base text-paper placeholder:text-paper-soft/30 resize-none',
                     'focus:outline-none transition-colors duration-300',
@@ -664,7 +664,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
             </motion.div>
           )}
 
-          {/* ── STEP 4: Agendamento ──────────────────────────────────────────── */}
+          {/* ── STEP 4: Agendamiento ──────────────────────────────────────────── */}
           {step === 4 && (
             <motion.div key="s4" custom={dir} variants={variants}
               initial="enter" animate="center" exit="exit"
@@ -672,8 +672,8 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               className="flex flex-col gap-8"
             >
               <div>
-                <p className="font-display text-xl font-light text-paper mb-1">How would you prefer to continue?</p>
-                <p className="font-sans text-sm text-paper-soft/50">Choose how you want to be contacted.</p>
+                <p className="font-display text-xl font-light text-paper mb-1">¿Cómo preferiría continuar?</p>
+                <p className="font-sans text-sm text-paper-soft/50">Elija cómo desea ser contactado.</p>
               </div>
 
               <Controller control={control} name="contactMethod"
@@ -693,11 +693,11 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                       <div className="flex items-center gap-2">
                         <MessageSquare size={16} className={field.value === 'mensagem' ? 'text-red' : 'text-paper-soft/40'} />
                         <span className="font-mono text-[11px] uppercase tracking-widest text-paper">
-                          Send message only
+                          Enviar solo mensaje
                         </span>
                       </div>
                       <p className="font-sans text-xs text-paper-dim leading-relaxed">
-                        We reply within 24h with an initial analysis and proposal.
+                        Respondemos en 24h con un análisis inicial y propuesta.
                       </p>
                     </button>
 
@@ -715,11 +715,11 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                       <div className="flex items-center gap-2">
                         <Calendar size={16} className={field.value === 'meet' ? 'text-red' : 'text-paper-soft/40'} />
                         <span className="font-mono text-[11px] uppercase tracking-widest text-paper">
-                          Schedule Google Meet
+                          Agendar Google Meet
                         </span>
                       </div>
                       <p className="font-sans text-xs text-paper-dim leading-relaxed">
-                        30 min video call to understand the project and get a clear direction.
+                        Videollamada de 30 min para entender el proyecto y obtener una dirección clara.
                       </p>
                     </button>
                   </div>
@@ -735,7 +735,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                   className="flex flex-col gap-6 border border-white/[0.06] p-5"
                 >
                   <div className="flex flex-col gap-2">
-                    <Label>Meeting date *</Label>
+                    <Label>Fecha de la reunión *</Label>
                     <Controller control={control} name="meetDate"
                       render={({ field }) => (
                         <input
@@ -756,7 +756,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                   </div>
 
                   <div className="flex flex-col gap-3">
-                    <Label>Time *</Label>
+                    <Label>Hora *</Label>
                     <Controller control={control} name="meetTime"
                       render={({ field }) => (
                         <div className="flex flex-wrap gap-2">
@@ -780,7 +780,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
                     />
                     <FieldError message={errors.meetTime?.message} />
                     <p className="font-mono text-[9px] text-paper-soft/30 tracking-wide">
-                      EST Timezone (UTC-5) · Mon-Fri only
+                      Zona horaria EST (UTC-5) · Lunes a Viernes solamente
                     </p>
                   </div>
                 </motion.div>
@@ -797,7 +797,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               onClick={() => go(step - 1)}
               className="font-mono text-[11px] uppercase tracking-widest text-paper-soft/50 hover:text-paper transition-colors"
             >
-              ← Back
+              ← Volver
             </button>
           ) : <span />}
 
@@ -807,7 +807,7 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               onClick={() => go(step + 1)}
               className="font-mono text-[11px] uppercase tracking-widest bg-red text-paper px-8 py-3.5 hover:bg-red-deep transition-colors active:scale-[0.98]"
             >
-              Continue →
+              Siguiente →
             </button>
           ) : (
             <button
@@ -817,11 +817,11 @@ _💡 Hello, I just generated my detailed briefing in PDF through your website! 
               style={{ boxShadow: '0 0 32px rgb(230 57 70 / 0.25)' }}
             >
               {loading ? (
-                <><Loader2 size={13} className="animate-spin" /> Sending...</>
+                <><Loader2 size={13} className="animate-spin" /> Generando...</>
               ) : contactMethod === 'meet' ? (
-                'Confirm meeting →'
+                'Confirmar reunión →'
               ) : (
-                'Send message →'
+                'Enviar mensaje →'
               )}
             </button>
           )}

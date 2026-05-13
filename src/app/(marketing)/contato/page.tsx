@@ -5,8 +5,8 @@ import { LocalClock } from '@/components/primitives/LocalClock';
 import { ContactForm } from '@/components/sections/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Schedule a free chat with Arvex. Response within 24 hours.',
+  title: 'Contacto',
+  description: 'Agende una charla gratuita con Arvex. Respuesta en menos de 24 horas.',
 };
 
 export default function ContatoPage() {
@@ -16,11 +16,11 @@ export default function ContatoPage() {
       <section className="min-h-[40vh] flex items-end border-b border-white/[0.06]">
         <div className="container pb-16 pt-[120px]">
           <Reveal>
-            <p className="section-label mb-6">CONTACT</p>
+            <p className="section-label mb-6">CONTACTO</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="font-display font-light leading-tight" style={{ fontSize: 'var(--fs-h1)' }}>
-              Let's talk.
+              Hablemos.
             </h1>
           </Reveal>
         </div>
@@ -34,9 +34,9 @@ export default function ContatoPage() {
             <div className="lg:col-span-7">
               <Reveal>
                 <h2 className="font-display text-2xl font-light text-paper mb-10">
-                  5 steps. Less than 3 minutes.<br />
+                  5 pasos. Menos de 3 minutos.<br />
                   <span className="text-paper-soft/40" style={{ fontSize: '0.75em' }}>
-                    We reply within 24h — or schedule a Google Meet now.
+                    Respondemos en 24h — o agende un Google Meet ahora.
                   </span>
                 </h2>
               </Reveal>
@@ -51,13 +51,13 @@ export default function ContatoPage() {
                 <div className="flex flex-col gap-10 sticky top-24">
                   {/* Clock */}
                   <div className="border border-white/[0.06] p-6">
-                    <p className="section-label mb-2">LOCAL TIME</p>
+                    <p className="section-label mb-2">HORA LOCAL</p>
                     <LocalClock className="text-paper text-base" showCity={false} />
                     <p className="font-sans text-xs text-paper-soft/60 mt-2">
-                      New York, USA (EST)
+                      América Latina (EST)
                     </p>
                     <p className="font-sans text-xs text-paper-soft/60 mt-1">
-                      Service Mon-Fri, 9am-6pm
+                      Atención Lun-Vie, 9am-6pm
                     </p>
                   </div>
 
@@ -79,7 +79,7 @@ export default function ContatoPage() {
                     </a>
 
                     <a
-                      href="https://wa.me/15550198"
+                      href="https://wa.me/5595981075842"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 group"
@@ -90,7 +90,7 @@ export default function ContatoPage() {
                       <div>
                         <p className="section-label mb-1">WHATSAPP</p>
                         <p className="font-sans text-sm text-paper-dim group-hover:text-paper transition-colors">
-                          +1 (555) 0198
+                          +55 (95) 98107-5842
                         </p>
                       </div>
                     </a>
@@ -100,11 +100,11 @@ export default function ContatoPage() {
                         <MapPin size={16} className="text-paper-soft" />
                       </div>
                       <div>
-                        <p className="section-label mb-1">LOCATION</p>
+                        <p className="section-label mb-1">UBICACIÓN</p>
                         <p className="font-sans text-sm text-paper-dim">
-                          New York, NY
+                          América Latina
                           <br />
-                          USA — remote service nationwide and global
+                          Servicio remoto en toda la región y el mundo
                         </p>
                       </div>
                     </div>
@@ -113,7 +113,7 @@ export default function ContatoPage() {
                   {/* Aviso resposta */}
                   <div className="border-t border-white/[0.06] pt-6">
                     <p className="font-mono text-xs text-paper-soft/50 uppercase tracking-wider">
-                      Response within 24h · Free chat · No strings attached
+                      Respuesta en 24h · Charla gratuita · Sin compromisos
                     </p>
                   </div>
                 </div>
